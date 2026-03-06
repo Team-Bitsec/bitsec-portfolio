@@ -8,7 +8,8 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://bitsec.agency',
+  site: 'https://Team-Bitsec.github.io',
+  base: '/bitsec-portfolio',
   vite: {
     plugins: [tailwindcss()]
   },
