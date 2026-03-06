@@ -1,0 +1,124 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ContactSection from '../../../components/home/ContactSection.astro';
+
+const faq = [
+  { question: 'How long does it take to build an app?', answer: 'A simple app typically takes 2-3 months. More complex applications with custom features and backend integrations can take 4-6 months or longer.' },
+  { question: 'Do you build for both iOS and Android?', answer: 'Yes! We primarily use cross-platform technologies like Flutter and React Native to build high-quality apps that work perfectly on both platforms from a single codebase.' },
+  { question: 'Do you help with App Store submission?', answer: 'Absolutely. We handle the entire deployment process, ensuring your app meets all guidelines for the Apple App Store and Google Play Store.' },
+  { question: 'Will my app be secure?', answer: 'Yes, we implement enterprise-grade security measures including data encryption, secure API architectures, and safe user authentication protocols.' },
+  { question: 'Do you provide maintenance?', answer: 'Yes, we offer ongoing maintenance and support plans to keep your app updated with the latest OS versions and feature enhancements.' }
+];
+---
+
+<Layout title="App Development Services - Bitsec" description="High-performance mobile apps for iOS and Android. We build native-feeling, cross-platform applications." faqSchema={faq}>
+  <div class="pt-32 pb-16 bg-gradient-to-b from-surface to-background dark:from-[#161B22] dark:to-background border-b border-border dark:border-border">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10">
+      <div class="inline-block bg-primary/10 dark:bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">App Development</div>
+      <h1 class="text-4xl md:text-6xl font-bold text-text-primary dark:text-white mb-6">High-Performance Mobile Apps</h1>
+      <p class="text-xl text-text-secondary dark:text-text-secondary mb-8">We build native-feeling, cross-platform mobile applications for iOS and Android.</p>
+      <a href="/en/contact" class="inline-flex items-center justify-center bg-primary text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-600 transition-colors shadow-lg shadow-primary/30">Get Free Quote</a>
+    </div>
+  </div>
+
+  <section class="py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div data-animate="fade-up">
+      <h2 class="text-3xl md:text-4xl font-bold text-text-primary dark:text-white mb-4 text-center">Our Process</h2>
+      <p class="text-center text-text-secondary dark:text-text-secondary mb-14">Simple, transparent, and proven 6-step process</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {[
+        { num: '01', icon: '🎯', title: 'Discovery', sub: 'We understand your app idea and business goals.' },
+        { num: '02', icon: '📱', title: 'UI/UX Design', sub: 'Wireframes and beautiful interactive prototypes.' },
+        { num: '03', icon: '⚡', title: 'Development', sub: 'Building robust apps with clean architecture.' },
+        { num: '04', icon: '🧪', title: 'Testing', sub: 'Comprehensive QA across devices and OS versions.' },
+        { num: '05', icon: '🚀', title: 'Launch', sub: 'App Store & Play Store deployment.' },
+        { num: '06', icon: '🔄', title: 'Support', sub: 'Ongoing maintenance, updates, and monitoring.' }
+      ].map((step, i) => (
+        <div class="bg-surface dark:bg-surface p-6 rounded-2xl border border-border dark:border-border relative" data-animate="fade-up" style={`transition-delay: ${i * 100}ms`}>
+          <div class="text-4xl mb-4">{step.icon}</div>
+          <div class="absolute top-4 right-4 text-5xl font-black text-primary/10 leading-none">{step.num}</div>
+          <h3 class="text-lg font-bold text-text-primary dark:text-white mb-2">{step.title}</h3>
+          <p class="text-sm text-text-secondary dark:text-text-secondary">{step.sub}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="pb-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div data-animate="fade-up">
+      <h2 class="text-3xl md:text-4xl font-bold text-text-primary dark:text-white mb-4 text-center">Apps We Build</h2>
+      <p class="text-center text-text-secondary dark:text-text-secondary mb-14">Versatile, high-performance solutions for any industry</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {[
+        { icon: '🛒', title: 'E-Commerce', sub: 'Feature-rich shopping experiences.' },
+        { icon: '🏥', title: 'Healthcare', sub: 'Patient management & telemedicine.' },
+        { icon: '🏦', title: 'Fintech', sub: 'Secure payments & financial tools.' },
+        { icon: '🎓', title: 'EdTech', sub: 'Learning platforms & course management.' },
+        { icon: '🚚', title: 'Logistics', sub: 'Real-time tracking & delivery apps.' },
+        { icon: '🌐', title: 'Social Apps', sub: 'Community building & networking.' }
+      ].map((cat, i) => (
+        <div class="bg-surface dark:bg-surface p-6 rounded-2xl border border-border dark:border-border hover:border-primary hover:shadow-md transition-all duration-200" data-animate="fade-up" style={`transition-delay: ${i * 100}ms`}>
+          <div class="text-4xl mb-4">{cat.icon}</div>
+          <h3 class="text-lg font-bold text-text-primary dark:text-white mb-2">{cat.title}</h3>
+          <p class="text-sm text-text-secondary dark:text-text-secondary">{cat.sub}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="py-16 bg-surface dark:bg-[var(--theme-surface-2)] border-y border-border dark:border-border">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl md:text-3xl font-bold text-text-primary dark:text-white text-center mb-10">Technologies We Use</h2>
+      <div class="flex flex-wrap justify-center gap-4">
+        {['Flutter', 'React Native', 'Swift', 'Kotlin', 'Firebase', 'Node.js', 'AWS', 'GraphQL', 'MongoDB', 'Supabase'].map(tech => (
+          <span class="bg-white dark:bg-background px-5 py-2.5 rounded-full border border-border dark:border-border text-sm font-medium text-text-primary dark:text-gray-200 shadow-sm hover:border-primary hover:text-primary transition-colors">{tech}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold text-text-primary dark:text-white text-center mb-14">Frequently Asked Questions</h2>
+    <div class="space-y-4">
+      {faq.map(item => (
+        <details class="group bg-surface dark:bg-surface rounded-xl border border-border dark:border-border p-5 open:border-primary">
+          <summary class="flex justify-between items-center cursor-pointer font-semibold text-text-primary dark:text-white list-none">
+            {item.question}<span class="text-primary text-xl group-open:rotate-180 transition-transform ml-4 flex-shrink-0">+</span>
+          </summary>
+          <p class="mt-4 text-text-secondary dark:text-text-secondary leading-relaxed">{item.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+  <ContactSection />
+</Layout>
+
+<script>
+  const animatedEls = document.querySelectorAll('[data-animate="fade-up"]');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement;
+          const delay = el.style.transitionDelay;
+          el.style.transition = `opacity 0.6s ease ${delay}, transform 0.6s ease ${delay}`;
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+          observer.unobserve(el);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  animatedEls.forEach((el) => {
+    const htmlEl = el as HTMLElement;
+    htmlEl.style.opacity = '0';
+    htmlEl.style.transform = 'translateY(32px)';
+    // Initial transition without delay to apply the starting state
+    htmlEl.style.transition = 'none'; 
+    observer.observe(el);
+  });
+</script>

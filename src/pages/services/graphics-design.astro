@@ -1,0 +1,165 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ContactSection from '../../components/home/ContactSection.astro';
+import { getLangFromUrl } from '../../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+
+const faq = [
+  {
+    question: lang === 'en' ? 'What file formats do you deliver?' : 'আপনারা কোন ফর্ম্যাটে ফাইল দেন?',
+    answer: lang === 'en' ? 'We deliver in AI, EPS, PDF, PNG, and SVG formats. Source files are always included.' : 'আমরা AI, EPS, PDF, PNG এবং SVG ফর্ম্যাটে দিই। সোর্স ফাইল সবসময় অন্তর্ভুক্ত থাকে।'
+  },
+  {
+    question: lang === 'en' ? 'How many revisions are included?' : 'কতটি রিভিশন অন্তর্ভুক্ত?',
+    answer: lang === 'en' ? 'All packages include unlimited revisions until you are 100% satisfied with the design.' : 'সব প্যাকেজে আনলিমিটেড রিভিশন অন্তর্ভুক্ত — আপনি ১০০% সন্তুষ্ট না হওয়া পর্যন্ত।'
+  },
+  {
+    question: lang === 'en' ? 'How long does logo design take?' : 'লোগো ডিজাইনে কত সময় লাগে?',
+    answer: lang === 'en' ? 'A logo typically takes 3-7 business days. A full brand identity package takes 2-4 weeks.' : 'একটি লোগো সাধারণত ৩-৭ কার্যদিবস লাগে। সম্পূর্ণ ব্র্যান্ড আইডেন্টিটি প্যাকেজ ২-৪ সপ্তাহ।'
+  },
+  {
+    question: lang === 'en' ? 'Do you design for print?' : 'আপনারা কি প্রিন্টের জন্য ডিজাইন করেন?',
+    answer: lang === 'en' ? 'Absolutely! Business cards, brochures, banners, packaging — we handle all print design with CMYK color profiles.' : 'অবশ্যই! বিজনেস কার্ড, ব্রোশার, ব্যানার, প্যাকেজিং — আমরা CMYK রঙ প্রোফাইলসহ সব প্রিন্ট ডিজাইন করি।'
+  }
+];
+---
+
+<Layout
+  title={lang === 'en' ? 'Graphics Design Service Bangladesh - Bitsec' : 'গ্রাফিক্স ডিজাইন সার্ভিস বাংলাদেশ - Bitsec'}
+  description={lang === 'en' ? 'Professional logo design, brand identity, and graphics design service in Bangladesh.' : 'বাংলাদেশে পেশাদার লোগো ডিজাইন, ব্র্যান্ড আইডেন্টিটি, এবং গ্রাফিক্স ডিজাইন।'}
+  faqSchema={faq}
+>
+  <div class="pt-32 pb-16 bg-gradient-to-b from-surface to-background dark:from-[#161B22] dark:to-background border-b border-border dark:border-border">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10">
+      <div class="inline-block bg-primary/10 dark:bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
+        {lang === 'en' ? 'Graphics Design' : 'গ্রাফিক্স ডিজাইন'}
+      </div>
+      <h1 class="text-4xl md:text-6xl font-bold text-text-primary dark:text-white mb-6">
+        {lang === 'en' ? 'Designs That Tell Your Story' : 'ডিজাইন যা আপনার গল্প বলে'}
+      </h1>
+      <p class="text-xl text-text-secondary dark:text-text-secondary mb-8">
+        {lang === 'en' ? 'Logo, brand identity, social media graphics, packaging — all crafted with creativity and intention.' : 'লোগো, ব্র্যান্ড আইডেন্টিটি, সোশ্যাল মিডিয়া গ্রাফিক্স, প্যাকেজিং — সব সৃজনশীলতায় তৈরি।'}
+      </p>
+      <a href="/contact" class="inline-flex items-center justify-center bg-primary text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-600 transition-colors shadow-lg shadow-primary/30">
+        {lang === 'en' ? 'Start Your Design' : 'ডিজাইন শুরু করুন'}
+      </a>
+    </div>
+  </div>
+
+  {/* Process */}
+  <section class="py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div data-animate="fade-up">
+      <h2 class="text-3xl md:text-4xl font-bold text-text-primary dark:text-white mb-4 text-center">
+        {lang === 'en' ? 'Our Process' : 'আমাদের প্রক্রিয়া'}
+      </h2>
+      <p class="text-center text-text-secondary dark:text-text-secondary mb-14">
+        {lang === 'en' ? 'Simple, transparent, and proven 6-step process' : 'সহজ, স্বচ্ছ এবং প্রমাণিত ৬-ধাপের প্রক্রিয়া'}
+      </p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {[
+        { num: '01', icon: '🎯', en: 'Briefing', bn: 'ব্রিফিং', enSub: 'Understanding your brand, audience, and vision.', bnSub: 'আপনার ব্র্যান্ড ও ভিশন বোঝা।' },
+        { num: '02', icon: '💡', en: 'Concept', bn: 'কনসেপ্ট', enSub: 'Brainstorming ideas, sketches, and moodboards.', bnSub: 'আইডিয়া ও স্কেচিং।' },
+        { num: '03', icon: '🎨', en: 'Design', bn: 'ডিজাইন', enSub: 'Creating high-fidelity drafts and concepts.', bnSub: 'হাই-ফিডেলিটি ড্রাফট।' },
+        { num: '04', icon: '🔄', en: 'Revisions', bn: 'রিভিশন', enSub: 'Refining and perfecting based on your feedback.', bnSub: 'মতামতের ভিত্তিতে পরিমার্জন।' },
+        { num: '05', icon: '✅', en: 'Finalization', bn: 'চূড়ান্তকরণ', enSub: 'Preparing all assets across required platforms.', bnSub: 'সব সম্পদ প্রস্তুত করা।' },
+        { num: '06', icon: '📦', en: 'Delivery', bn: 'ডেলিভারি', enSub: 'Handing over all final, editable source files.', bnSub: 'সোর্স ফাইল হস্তান্তর।' }
+      ].map((step, i) => (
+        <div class="bg-surface dark:bg-surface p-6 rounded-2xl border border-border dark:border-border relative" data-animate="fade-up" style={`transition-delay: ${i * 100}ms`}>
+          <div class="text-4xl mb-4">{step.icon}</div>
+          <div class="absolute top-4 right-4 text-5xl font-black text-primary/10 leading-none">{step.num}</div>
+          <h3 class="text-lg font-bold text-text-primary dark:text-white mb-2">{lang === 'en' ? step.en : step.bn}</h3>
+          <p class="text-sm text-text-secondary dark:text-text-secondary">{lang === 'en' ? step.enSub : step.bnSub}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  {/* Design categories */}
+  <section class="pb-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div data-animate="fade-up">
+      <h2 class="text-3xl md:text-4xl font-bold text-text-primary dark:text-white mb-4 text-center">
+        {lang === 'en' ? 'What We Design' : 'আমরা যা ডিজাইন করি'}
+      </h2>
+      <p class="text-center text-text-secondary dark:text-text-secondary mb-14">
+        {lang === 'en' ? 'Show don\'t tell — our results speak for themselves' : 'দেখাই বলার চেয়ে বেশি — ফলাফলই কথা বলে'}
+      </p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {[
+        { icon: '🎯', en: 'Logo Design', bn: 'লোগো ডিজাইন', enSub: 'Memorable marks that define your brand.', bnSub: 'আপনার ব্র্যান্ডের জন্য স্মরণীয় লোগো।' },
+        { icon: '🏢', en: 'Brand Identity', bn: 'ব্র্যান্ড আইডেন্টিটি', enSub: 'Cohesive guidelines and brand systems.', bnSub: 'সুসঙ্গত গাইডলাইন এবং ব্র্যান্ড সিস্টেম।' },
+        { icon: '📱', en: 'Social Media', bn: 'সোশ্যাল মিডিয়া', enSub: 'Engaging banners and promotional graphics.', bnSub: 'আকর্ষণীয় ব্যানার ও প্রমোশনাল গ্রাফিক্স।' },
+        { icon: '🖨️', en: 'Print Design', bn: 'প্রিন্ট ডিজাইন', enSub: 'High-quality brochures, cards, and flyers.', bnSub: 'উচ্চমানের ব্রোশিওর, কার্ড ও ফ্লায়ার।' },
+        { icon: '📦', en: 'Packaging', bn: 'প্যাকেজিং', enSub: 'Product packaging that stands out on shelves.', bnSub: 'মজবুত ও আকর্ষণীয় প্রোডাক্ট প্যাকেজিং।' },
+        { icon: '🖥️', en: 'UI Design', bn: 'UI ডিজাইন', enSub: 'Intuitive and beautiful user interfaces.', bnSub: 'সহজবোধ্য এবং সুন্দর ইউজার ইন্টারফেস।' }
+      ].map((cat, i) => (
+        <div class="bg-surface dark:bg-surface p-6 rounded-2xl border border-border dark:border-border hover:border-primary hover:shadow-md transition-all duration-200" data-animate="fade-up" style={`transition-delay: ${i * 100}ms`}>
+          <div class="text-4xl mb-4">{cat.icon}</div>
+          <h3 class="text-lg font-bold text-text-primary dark:text-white mb-2">{lang === 'en' ? cat.en : cat.bn}</h3>
+          <p class="text-sm text-text-secondary dark:text-text-secondary">{lang === 'en' ? cat.enSub : cat.bnSub}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="py-16 bg-surface dark:bg-[var(--theme-surface-2)] border-y border-border dark:border-border">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl md:text-3xl font-bold text-text-primary dark:text-white text-center mb-10">
+        {lang === 'en' ? 'Tools We Master' : 'আমরা যে টুলস ব্যবহার করি'}
+      </h2>
+      <div class="flex flex-wrap justify-center gap-4">
+        {['Figma', 'Adobe Illustrator', 'Adobe Photoshop', 'Adobe After Effects', 'Adobe InDesign', 'Canva', 'Spline', 'Framer', 'Sketch', 'Miro'].map(tool => (
+          <span class="bg-white dark:bg-background px-5 py-2.5 rounded-full border border-border dark:border-border text-sm font-medium text-text-primary dark:text-gray-200 shadow-sm hover:border-primary hover:text-primary transition-colors cursor-default">
+            {tool}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl md:text-4xl font-bold text-text-primary dark:text-white text-center mb-14">FAQ</h2>
+    <div class="space-y-4">
+      {faq.map((item) => (
+        <details class="group bg-surface dark:bg-surface rounded-xl border border-border dark:border-border p-5 open:border-primary transition-colors">
+          <summary class="flex justify-between items-center cursor-pointer font-semibold text-text-primary dark:text-white list-none">
+            {item.question}
+            <span class="text-primary text-xl group-open:rotate-180 transition-transform ml-4 flex-shrink-0">+</span>
+          </summary>
+          <p class="mt-4 text-text-secondary dark:text-text-secondary leading-relaxed">{item.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <ContactSection />
+</Layout>
+
+<script>
+  const animatedEls = document.querySelectorAll('[data-animate="fade-up"]');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement;
+          const delay = el.style.transitionDelay;
+          el.style.transition = `opacity 0.6s ease ${delay}, transform 0.6s ease ${delay}`;
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+          observer.unobserve(el);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  animatedEls.forEach((el) => {
+    const htmlEl = el as HTMLElement;
+    htmlEl.style.opacity = '0';
+    htmlEl.style.transform = 'translateY(32px)';
+    // Initial transition without delay to apply the starting state
+    htmlEl.style.transition = 'none'; 
+    observer.observe(el);
+  });
+</script>

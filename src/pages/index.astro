@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/home/Hero';
+import TrustBar from '../components/home/TrustBar';
+import ServicesPreview from '../components/home/ServicesPreview.astro';
+import HowWeWork from '../components/home/HowWeWork.astro';
+import PortfolioFilter from '../components/home/PortfolioFilter';
+import TestimonialsCarousel from '../components/home/TestimonialsCarousel';
+import BlogPreview from '../components/home/BlogPreview.astro';
+import FreeConsultation from '../components/home/FreeConsultation.astro';
+import ContactSection from '../components/home/ContactSection.astro';
+import { useTranslations, useTranslatedPath } from '../i18n/utils';
+
+const t = useTranslations('bn');
+const translatePath = useTranslatedPath('bn');
+---
+
+<Layout title="Bitsec - সেরা ডিজিটাল সার্ভিস এজেন্সি | Web, App, Pentest Bangladesh">
+	<Hero 
+		client:load 
+		lang="bn"
+		title={t('hero.title')}
+		subtitle={t('hero.subtitle')}
+		primaryCta={t('hero.cta.primary')}
+		secondaryCta={t('hero.cta.secondary')}
+		primaryLink="/contact"
+		secondaryLink="/portfolio"
+	/>
+	<TrustBar client:visible lang="bn" />
+	<ServicesPreview />
+	<HowWeWork />
+	<PortfolioFilter client:visible lang="bn" portfolioPath={translatePath('/portfolio')} />
+	<TestimonialsCarousel client:visible lang="bn" />
+	<FreeConsultation />
+	<BlogPreview />
+	<ContactSection />
+</Layout>

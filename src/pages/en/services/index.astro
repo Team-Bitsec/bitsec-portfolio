@@ -1,0 +1,16 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ServicesPreview from '../../../components/home/ServicesPreview.astro';
+import HowWeWork from '../../../components/home/HowWeWork.astro';
+import ContactSection from '../../../components/home/ContactSection.astro';
+import { useTranslations } from '../../../i18n/utils';
+
+const t = useTranslations('en');
+---
+
+<Layout title="Our Services - Bitsec">
+	<div class="pt-24"></div>
+	<ServicesPreview />
+	<HowWeWork />
+	<ContactSection />
+</Layout>

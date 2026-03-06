@@ -1,0 +1,65 @@
+---
+import { doc, getDoc, collection, getDocs } from 'firebase/firestore';
+import { db } from '../../../lib/firebase';
+import Layout from '../../../layouts/Layout.astro';
+import ContactSection from '../../../components/home/ContactSection.astro';
+
+export async function getStaticPaths() {
+  const paths: any[] = [];
+  try {
+    const querySnapshot = await getDocs(collection(db, 'blogs'));
+    querySnapshot.forEach((doc) => {
+      paths.push({
+        params: { id: doc.id },
+        props: { blogId: doc.id },
+      });
+    });
+  } catch (error) {
+    console.error("Error fetching blog paths:", error);
+  }
+  return paths;
+}
+
+const { blogId } = Astro.props;
+
+let entry: any = null;
+try {
+  const docRef = doc(db, 'blogs', blogId);
+  const docSnap = await getDoc(docRef);
+  if (docSnap.exists()) {
+    entry = { id: docSnap.id, ...docSnap.data() };
+  }
+} catch (error) {
+  console.error("Error fetching blog details:", error);
+}
+
+if (!entry) {
+  return Astro.redirect('/404');
+}
+---
+
+<Layout title={`${entry.title} - Blog | Bitsec`}>
+	<div class="pt-32 pb-16 bg-gradient-to-b from-surface to-background dark:from-[#161B22] dark:to-background border-b border-border dark:border-border">
+		<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10">
+			<div class="mb-6 flex justify-center items-center gap-4 text-sm font-medium">
+				<span class="text-text-secondary dark:text-gray-400">
+                    Published: {new Date(entry.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </span>
+			</div>
+			<h1 class="text-3xl md:text-5xl font-bold text-text-primary dark:text-white mb-8 leading-tight">{entry.title}</h1>
+			{entry.image && (
+                <div class="aspect-video w-full rounded-2xl overflow-hidden shadow-lg border border-border dark:border-border mb-8">
+                    <img src={entry.image} alt={entry.title} loading="lazy" decoding="async" class="w-full h-full object-cover" />
+                </div>
+            )}
+		</div>
+	</div>
+
+	<article class="py-16 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="prose prose-lg dark:prose-invert max-w-none text-text-secondary dark:text-gray-300 whitespace-pre-line">
+			<Fragment set:html={entry.content} />
+		</div>
+	</article>
+
+	<ContactSection />
+</Layout>

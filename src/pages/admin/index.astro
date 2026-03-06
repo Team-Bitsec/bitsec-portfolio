@@ -1,0 +1,20 @@
+---
+import '../../styles/global.css';
+import Login from '../../components/admin/Login';
+import AdminLayout from '../../components/admin/AdminLayout';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>Admin Login - Bitsec</title>
+	</head>
+	<body>
+		<AdminLayout client:only="react">
+			<Login client:only="react" />
+		</AdminLayout>
+	</body>
+</html>

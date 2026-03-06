@@ -1,0 +1,120 @@
+---
+import { getLangFromUrl, useTranslatedPath } from '../../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
+
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../../lib/firebase';
+
+let projects: any[] = [];
+try {
+  const querySnapshot = await getDocs(collection(db, 'projects'));
+  querySnapshot.forEach((doc) => {
+    projects.push({ id: doc.id, ...doc.data() });
+  });
+} catch (error) {
+  console.error("Error fetching projects from Firebase:", error);
+}
+
+// Just take the first 3 for preview
+const previewProjects = projects.slice(0, 3);
+
+---
+
+<section class="py-24 bg-surface dark:bg-[var(--theme-surface-2)] relative overflow-hidden">
+  <div class="absolute top-0 right-0 w-96 h-96 bg-[var(--theme-primary)]/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    {/* Section header */}
+    <div class="text-center mb-16 portfolio-animate" data-delay="0">
+      <span class="inline-block text-xs font-bold uppercase tracking-widest text-[var(--theme-primary)] bg-[var(--theme-primary)]/10 px-4 py-1.5 rounded-full mb-4">
+        {lang === 'en' ? 'Our Work' : 'আমাদের কাজ'}
+      </span>
+      <h2 class="text-3xl md:text-5xl font-bold text-text-primary dark:text-white mb-4">
+        {lang === 'en' ? 'Selected Projects' : 'উল্লেখযোগ্য প্রজেক্টসমূহ'}
+      </h2>
+      <p class="text-lg text-text-secondary dark:text-text-secondary max-w-xl mx-auto">
+        {lang === 'en'
+          ? 'A few highlights from our recent work — more available on request.'
+          : 'আমাদের সাম্প্রতিক কাজের কিছু নমুনা — আরও জানতে যোগাযোগ করুন।'}
+      </p>
+    </div>
+
+    {/* Project cards */}
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      {previewProjects.map((p, i) => (
+        <a href={translatePath(`/portfolio/${p.id}`)} class="portfolio-animate group relative overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#18181b] hover:-translate-y-2 hover:shadow-2xl hover:shadow-[var(--theme-primary)]/10 transition-all duration-300 block" style={`--delay: ${i * 0.15}s`}>
+          
+          {/* Gradient image area */}
+          <div class={`relative h-48 bg-gradient-to-br from-[#0057FF] via-[#0040C0] to-[#00C2A8] flex items-center justify-center overflow-hidden`}>
+            {/* Grid pattern overlay */}
+            <div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(0deg, rgba(255,255,255,.1) 0, rgba(255,255,255,.1) 1px, transparent 1px, transparent 40px), repeating-linear-gradient(90deg, rgba(255,255,255,.1) 0, rgba(255,255,255,.1) 1px, transparent 1px, transparent 40px);"></div>
+            <img src={p.image} class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt={p.title} />
+            {/* Tag badge */}
+            <span class="absolute top-3 right-3 bg-black/60 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full z-10">
+              {p.category}
+            </span>
+          </div>
+
+          {/* Content */}
+          <div class="p-6">
+            <h3 class="text-lg font-bold text-text-primary dark:text-white mb-2 group-hover:text-[var(--theme-primary)] transition-colors">
+              {p.title}
+            </h3>
+            <p class="text-sm text-text-secondary dark:text-text-secondary mb-4 leading-relaxed line-clamp-2">
+              {p.description}
+            </p>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    {/* CTA row */}
+    <div class="text-center portfolio-animate" data-delay="0.45">
+      <a
+        href={translatePath('/portfolio')}
+        class="inline-flex items-center gap-2 bg-[var(--theme-primary)] text-white font-semibold px-8 py-3.5 rounded-full hover:opacity-90 hover:-translate-y-0.5 transition-all duration-200 shadow-lg shadow-[var(--theme-primary)]/30"
+      >
+        {lang === 'en' ? 'View All Projects' : 'সব প্রজেক্ট দেখুন'}
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const portfolioEls = document.querySelectorAll('.portfolio-animate');
+
+  if (prefersReduced) {
+    portfolioEls.forEach((el) => {
+      (el as HTMLElement).style.opacity = '1';
+      (el as HTMLElement).style.transform = 'none';
+    });
+  } else {
+    const portfolioObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target as HTMLElement;
+          const delay = (el.dataset.delay ? parseFloat(el.dataset.delay) : parseFloat(getComputedStyle(el).getPropertyValue('--delay') || '0'));
+          setTimeout(() => {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+          }, delay * 1000);
+          portfolioObserver.unobserve(el);
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    portfolioEls.forEach((el) => {
+      const htmlEl = el as HTMLElement;
+      htmlEl.style.opacity = '0';
+      htmlEl.style.transform = 'translateY(28px)';
+      htmlEl.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+      portfolioObserver.observe(htmlEl);
+    });
+  }
+</script>

@@ -1,0 +1,172 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ContactSection from '../../components/home/ContactSection.astro';
+import { getLangFromUrl } from '../../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+
+const faq = [
+  {
+    question: lang === 'en' ? 'How long does it take to build a website?' : 'ওয়েবসাইট বানাতে কত দিন লাগে?',
+    answer: lang === 'en' ? 'A basic website takes 2-3 weeks. A complex e-commerce or web app typically takes 6-10 weeks depending on requirements.' : 'একটি সাধারণ ওয়েবসাইট ২-৩ সপ্তাহ লাগে। জটিল ই-কমার্স বা ওয়েব অ্যাপ সাধারণত ৬-১০ সপ্তাহ লাগে।'
+  },
+  {
+    question: lang === 'en' ? 'What technologies do you use?' : 'আপনারা কোন প্রযুক্তি ব্যবহার করেন?',
+    answer: lang === 'en' ? 'We primarily use React, Next.js, Astro and also support WordPress, Laravel based on client needs.' : 'আমরা মূলত React, Next.js, Astro ব্যবহার করি এবং ক্লায়েন্টের প্রয়োজন অনুযায়ী WordPress, Laravel-ও সাপোর্ট করি।'
+  },
+  {
+    question: lang === 'en' ? 'Do you provide SEO optimization?' : 'আপনারা কি SEO অপ্টিমাইজেশন দেন?',
+    answer: lang === 'en' ? 'Yes! Every website we build is SEO-optimized from day one — fast load times, proper meta tags, schema markup, and mobile-first design.' : 'হ্যাঁ! আমাদের তৈরি প্রতিটি ওয়েবসাইট প্রথম দিন থেকেই SEO-রেডি — দ্রুত লোড, সঠিক মেটা ট্যাগ, স্কিমা মার্কআপ এবং মোবাইল-ফার্স্ট ডিজাইন।'
+  },
+  {
+    question: lang === 'en' ? 'Will my website work on mobile?' : 'আমার ওয়েবসাইট কি মোবাইলে কাজ করবে?',
+    answer: lang === 'en' ? 'Absolutely. We follow mobile-first design principles, so your site looks perfect on phones, tablets, and desktops.' : 'অবশ্যই। আমরা মোবাইল-ফার্স্ট ডিজাইন অনুসরণ করি — আপনার সাইট ফোন, ট্যাবলেট ও ডেস্কটপে নিখুঁত দেখাবে।'
+  },
+  {
+    question: lang === 'en' ? 'Do you offer post-launch support?' : 'লঞ্চের পরে কি সাপোর্ট পাওয়া যাবে?',
+    answer: lang === 'en' ? 'Yes, we offer 1-6 months of free maintenance depending on the package, and ongoing support plans are available.' : 'হ্যাঁ, প্যাকেজ অনুযায়ী ১-৬ মাস ফ্রি মেইনটেন্যান্স এবং চলমান সাপোর্ট প্ল্যান পাওয়া যায়।'
+  }
+];
+---
+
+<Layout 
+  title={lang === 'en' ? 'Web Development Bangladesh - Bitsec' : 'ওয়েব ডেভেলপমেন্ট বাংলাদেশ - Bitsec'}
+  description={lang === 'en' ? 'Top web development company in Bangladesh. We build SEO-ready, ultra-fast websites using Next.js, React, and Astro.' : 'বাংলাদেশের সেরা ওয়েব ডেভেলপমেন্ট কোম্পানি। আমরা Next.js, React এবং Astro দিয়ে দ্রুতগতির, SEO-রেডি ওয়েবসাইট তৈরি করি।'}
+  faqSchema={faq}
+>
+  {/* Hero */}
+  <div class="pt-32 pb-16 bg-gradient-to-b from-surface to-background dark:from-[#161B22] dark:to-background border-b border-border dark:border-border">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10">
+      <div class="inline-block bg-primary/10 dark:bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
+        {lang === 'en' ? 'Web Development' : 'ওয়েব ডেভেলপমেন্ট'}
+      </div>
+      <h1 class="text-4xl md:text-6xl font-bold text-text-primary dark:text-white mb-6">
+        {lang === 'en' ? 'Websites That Drive Results' : 'ওয়েবসাইট যা ফলাফল এনে দেয়'}
+      </h1>
+      <p class="text-xl text-text-secondary dark:text-text-secondary mb-8">
+        {lang === 'en' ? 'We build ultra-fast, SEO-optimized, visually stunning websites that convert visitors into paying customers.' : 'আমরা অতি-দ্রুত, SEO-অপ্টিমাইজড, দৃষ্টিনন্দন ওয়েবসাইট তৈরি করি যা ভিজিটরদের ক্লায়েন্টে পরিণত করে।'}
+      </p>
+      <a href="/contact" class="inline-flex items-center justify-center bg-primary text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-600 transition-colors shadow-lg shadow-primary/30">
+        {lang === 'en' ? 'Get Free Quote' : 'ফ্রি কোটেশন নিন'}
+      </a>
+    </div>
+  </div>
+
+  {/* Process */}
+  <section class="py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl md:text-4xl font-bold text-text-primary dark:text-white mb-4 text-center">
+      {lang === 'en' ? 'Our Process' : 'আমাদের প্রক্রিয়া'}
+    </h2>
+    <p class="text-center text-text-secondary dark:text-text-secondary mb-14">
+      {lang === 'en' ? 'Simple, transparent, and proven 6-step process' : 'সহজ, স্বচ্ছ এবং প্রমাণিত ৬-ধাপের প্রক্রিয়া'}
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {[
+        { num: '01', icon: '🎯', en: 'Discovery', bn: 'প্রয়োজন বিশ্লেষণ', enSub: 'Understanding your goals and requirements.', bnSub: 'আপনার লক্ষ্য ও প্রয়োজন বুঝি।' },
+        { num: '02', icon: '📋', en: 'Planning', bn: 'পরিকল্পনা', enSub: 'Project roadmap and timeline.', bnSub: 'প্রজেক্ট রোডম্যাপ এবং সময়কাল নির্ধারণ।' },
+        { num: '03', icon: '🎨', en: 'Design', bn: 'ডিজাইন', enSub: 'Figma mockups and interactive prototypes.', bnSub: 'Figma মকআপ, যতক্ষণ পছন্দ না হয় বদলাই।' },
+        { num: '04', icon: '⚡', en: 'Development', bn: 'ডেভেলপমেন্ট', enSub: 'Fast, clean code with SEO built-in.', bnSub: 'দ্রুত, পরিষ্কার কোড এবং বিল্ট-ইন SEO।' },
+        { num: '05', icon: '🧪', en: 'Testing', bn: 'টেস্টিং', enSub: 'Rigorous QA and performance testing.', bnSub: 'কঠোর QA এবং পারফরম্যান্স টেস্টিং।' },
+        { num: '06', icon: '🚀', en: 'Launch', bn: 'লঞ্চ', enSub: 'Deployment and project handover.', bnSub: 'ডিপ্লয়মেন্ট এবং হ্যান্ডওভার।' }
+      ].map(step => (
+        <div class="bg-surface dark:bg-surface p-6 rounded-2xl border border-border dark:border-border relative">
+          <div class="text-4xl mb-4">{step.icon}</div>
+          <div class="absolute top-4 right-4 text-5xl font-black text-primary/10 dark:text-primary/10 leading-none">{step.num}</div>
+          <h3 class="text-lg font-bold text-text-primary dark:text-white mb-2">{lang === 'en' ? step.en : step.bn}</h3>
+          <p class="text-sm text-text-secondary dark:text-text-secondary">{lang === 'en' ? step.enSub : step.bnSub}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  {/* What We Build */}
+  <section class="pb-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div data-animate="fade-up">
+      <h2 class="text-3xl md:text-4xl font-bold text-text-primary dark:text-white mb-4 text-center">
+        {lang === 'en' ? 'What We Build' : 'আমরা যা তৈরি করি'}
+      </h2>
+      <p class="text-center text-text-secondary dark:text-text-secondary mb-14">
+        {lang === 'en' ? 'Scalable and fast web experiences' : 'স্কেলেবল এবং দ্রুত ওয়েব অভিজ্ঞতা'}
+      </p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {[
+        { icon: '🏢', en: 'Corporate Sites', bn: 'কর্পোরেট সাইট', enSub: 'Professional websites for businesses.', bnSub: 'ব্যবসার জন্য পেশাদার ওয়েবসাইট।' },
+        { icon: '🛒', en: 'E-Commerce', bn: 'ই-কমার্স', enSub: 'High-converting online stores.', bnSub: 'উচ্চ-রূপান্তরশীল অনলাইন স্টোর।' },
+        { icon: '🌩️', en: 'SaaS Platforms', bn: 'SaaS প্ল্যাটফর্ম', enSub: 'Scalable cloud-based applications.', bnSub: 'স্কেলেবল ক্লাউড-ভিত্তিক অ্যাপ্লিকেশন।' },
+        { icon: '📰', en: 'Blogs & News', bn: 'ব্লগ ও নিউজ', enSub: 'Content-rich editorial platforms.', bnSub: 'কন্টেন্ট-সমৃদ্ধ সম্পাদকীয় প্ল্যাটফর্ম।' },
+        { icon: '👨‍💻', en: 'Portfolios', bn: 'পোর্টফোলিও', enSub: 'Showcases for agencies and freelancers.', bnSub: 'এজেন্সি এবং ফ্রিল্যান্সারদের জন্য শোকেস।' },
+        { icon: '⚡', en: 'Landing Pages', bn: 'ল্যান্ডিং পেজ', enSub: 'Fast, optimized campaign pages.', bnSub: 'দ্রুত, অপ্টিমাইজড ক্যাম্পেইন পেজ।' }
+      ].map((cat, i) => (
+        <div class="bg-surface dark:bg-surface p-6 rounded-2xl border border-border dark:border-border hover:border-primary hover:shadow-md transition-all duration-200" data-animate="fade-up" style={`transition-delay: ${i * 100}ms`}>
+          <div class="text-4xl mb-4">{cat.icon}</div>
+          <h3 class="text-lg font-bold text-text-primary dark:text-white mb-2">{lang === 'en' ? cat.en : cat.bn}</h3>
+          <p class="text-sm text-text-secondary dark:text-text-secondary">{lang === 'en' ? cat.enSub : cat.bnSub}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  {/* Tech Stack */}
+  <section class="py-16 bg-surface dark:bg-[var(--theme-surface-2)] border-y border-border dark:border-border">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl md:text-3xl font-bold text-text-primary dark:text-white text-center mb-10">
+        {lang === 'en' ? 'Technologies We Use' : 'আমরা যে প্রযুক্তি ব্যবহার করি'}
+      </h2>
+      <div class="flex flex-wrap justify-center gap-4">
+        {['React', 'Next.js', 'Astro', 'TypeScript', 'WordPress', 'Laravel', 'Tailwind CSS', 'Node.js', 'PostgreSQL', 'Vercel'].map(tech => (
+          <span class="bg-white dark:bg-background px-5 py-2.5 rounded-full border border-border dark:border-border text-sm font-medium text-text-primary dark:text-gray-200 shadow-sm hover:border-primary hover:text-primary transition-colors cursor-default">
+            {tech}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* FAQ */}
+  <section class="py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl md:text-4xl font-bold text-text-primary dark:text-white text-center mb-14">
+      {lang === 'en' ? 'Frequently Asked Questions' : 'সচরাচর জিজ্ঞাসা'}
+    </h2>
+    <div class="space-y-4">
+      {faq.map((item, i) => (
+        <details class="group bg-surface dark:bg-surface rounded-xl border border-border dark:border-border p-5 open:border-primary transition-colors">
+          <summary class="flex justify-between items-center cursor-pointer font-semibold text-text-primary dark:text-white list-none">
+            {item.question}
+            <span class="text-primary text-xl group-open:rotate-180 transition-transform ml-4 flex-shrink-0">+</span>
+          </summary>
+          <p class="mt-4 text-text-secondary dark:text-text-secondary leading-relaxed">{item.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <ContactSection />
+</Layout>
+
+<script>
+  const animatedEls = document.querySelectorAll('[data-animate="fade-up"]');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement;
+          const delay = el.style.transitionDelay;
+          el.style.transition = `opacity 0.6s ease ${delay}, transform 0.6s ease ${delay}`;
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+          observer.unobserve(el);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  animatedEls.forEach((el) => {
+    const htmlEl = el as HTMLElement;
+    htmlEl.style.opacity = '0';
+    htmlEl.style.transform = 'translateY(32px)';
+    // Initial transition without delay to apply the starting state
+    htmlEl.style.transition = 'none'; 
+    observer.observe(el);
+  });
+</script>

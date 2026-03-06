@@ -1,0 +1,117 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactSection from '../components/home/ContactSection.astro';
+import { getLangFromUrl } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+
+
+---
+
+<Layout title={lang === 'en' ? 'About Us - Bitsec Digital Agency' : 'আমাদের সম্পর্কে - Bitsec Digital Agency'}>
+  <div class="pt-32 pb-16 bg-gradient-to-b from-surface to-background dark:from-[#161B22] dark:to-background border-b border-border dark:border-border">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10">
+      <h1 class="text-4xl md:text-6xl font-bold text-text-primary dark:text-white mb-6">
+        {lang === 'en' ? 'About Bitsec' : 'Bitsec সম্পর্কে'}
+      </h1>
+      <p class="text-xl text-text-secondary dark:text-text-secondary">
+        {lang === 'en'
+          ? 'Bangladesh\'s leading digital service agency — blending creativity, security, and technology.'
+          : 'বাংলাদেশের অন্যতম সেরা ডিজিটাল সার্ভিস এজেন্সি — সৃজনশীলতা, নিরাপত্তা ও প্রযুক্তির সমন্বয়।'}
+      </p>
+    </div>
+  </div>
+
+  {/* Company Story */}
+  <section class="py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-3xl font-bold text-text-primary dark:text-white mb-6">
+          {lang === 'en' ? 'Our Story' : 'আমাদের যাত্রা'}
+        </h2>
+        <p class="text-text-secondary dark:text-gray-300 leading-relaxed mb-4">
+          {lang === 'en'
+            ? 'Bitsec was born in 2021 from a simple belief: Bangladeshi businesses deserve world-class digital services without paying international prices. Our founders — developers and cybersecurity researchers — saw a gap in the market.'
+            : '২০২১ সালে Bitsec-এর জন্ম একটি সহজ বিশ্বাস থেকে: বাংলাদেশের ব্যবসায়িক প্রতিষ্ঠানগুলো আন্তর্জাতিক মানের ডিজিটাল সেবা পাওয়ার যোগ্য, আন্তর্জাতিক মূল্য না দিয়েও। আমাদের প্রতিষ্ঠাতারা — ডেভেলপার ও সাইবারসিকিউরিটি গবেষকরা — বাজারে এই শূন্যতা দেখেছিলেন।'}
+        </p>
+        <p class="text-text-secondary dark:text-gray-300 leading-relaxed mb-4">
+          {lang === 'en'
+            ? 'What started as a two-person freelancing team quickly grew to a full-service agency offering Web Development, Mobile Apps, Graphics Design, and the rarest service in Bangladesh — professional Penetration Testing.'
+            : 'দুজনের ফ্রিল্যান্সিং টিম থেকে দ্রুত পূর্ণাঙ্গ এজেন্সিতে পরিণত হয়েছি — ওয়েব ডেভেলপমেন্ট, মোবাইল অ্যাপ, গ্রাফিক্স ডিজাইন, এবং বাংলাদেশে সবচেয়ে বিরল সার্ভিস — পেশাদার পেনেট্রেশন টেস্টিং।'}
+        </p>
+        <p class="text-text-secondary dark:text-gray-300 leading-relaxed">
+          {lang === 'en'
+            ? 'Today, we\'ve delivered 50+ projects for clients across Bangladesh and 5+ countries.'
+            : 'আজ আমরা বাংলাদেশ ও ৫+ দেশের ক্লায়েন্টদের জন্য ৫০+ প্রজেক্ট ডেলিভারি দিয়েছি।'}
+        </p>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        {[
+          { value: '50+', label: lang === 'en' ? 'Projects' : 'প্রজেক্ট' },
+          { value: '25+', label: lang === 'en' ? 'Happy Clients' : 'সন্তুষ্ট ক্লায়েন্ট' },
+          { value: '4+', label: lang === 'en' ? 'Years' : 'বছর' },
+          { value: '5+', label: lang === 'en' ? 'Countries' : 'দেশ' },
+        ].map(stat => (
+          <div class="bg-surface dark:bg-surface p-6 rounded-2xl border border-border dark:border-border text-center">
+            <div class="text-3xl font-extrabold text-primary mb-1">{stat.value}</div>
+            <div class="text-sm text-text-secondary dark:text-text-secondary">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Why We're Different */}
+  <section class="py-16 bg-surface dark:bg-[var(--theme-surface-2)] border-y border-border dark:border-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-text-primary dark:text-white text-center mb-14">
+        {lang === 'en' ? 'Why Choose Bitsec?' : 'কেন Bitsec বেছে নেবেন?'}
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          {
+            iconPath: 'M13 10V3L4 14h7v7l9-11h-7z',
+            en: 'Speed & Performance', bn: 'গতি ও পারফরম্যান্স',
+            enSub: 'Lighthouse 90+ scores guaranteed on all websites.',
+            bnSub: 'সব ওয়েবসাইটে Lighthouse 90+ স্কোর গ্যারান্টিড।',
+            cls: 'text-yellow-600 bg-yellow-100 dark:bg-yellow-900/30 dark:text-yellow-300'
+          },
+          {
+            iconPath: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z',
+            en: 'Security-First', bn: 'নিরাপত্তাই প্রথম',
+            enSub: 'Every project is security-reviewed before delivery.',
+            bnSub: 'প্রতিটি প্রজেক্ট ডেলিভারির আগে সিকিউরিটি রিভিউ।',
+            cls: 'text-blue-600 bg-blue-100 dark:bg-blue-900/30 dark:text-blue-300'
+          },
+          {
+            iconPath: 'M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0M12 9v4m0 4h.01',
+            en: 'Bilingual Support', bn: 'দ্বিভাষিক সাপোর্ট',
+            enSub: 'We speak your language — Bengali & English.',
+            bnSub: 'আমরা আপনার ভাষায় কথা বলি — বাংলা ও ইংরেজি।',
+            cls: 'text-teal-600 bg-teal-100 dark:bg-teal-900/30 dark:text-teal-300'
+          },
+          {
+            iconPath: 'M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z',
+            en: '24/7 Support', bn: '২৪/৭ সাপোর্ট',
+            enSub: "We're always here — even after project handover.",
+            bnSub: 'আমরা সবসময় আছি — প্রজেক্ট হ্যান্ডওভারের পরেও।',
+            cls: 'text-purple-600 bg-purple-100 dark:bg-purple-900/30 dark:text-purple-300'
+          },
+        ].map(item => (
+          <div class="bg-white dark:bg-background p-6 rounded-2xl border border-border dark:border-border hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+            <div class={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${item.cls}`}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d={item.iconPath}/>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-text-primary dark:text-white mb-2">{lang === 'en' ? item.en : item.bn}</h3>
+            <p class="text-sm text-text-secondary dark:text-text-secondary">{lang === 'en' ? item.enSub : item.bnSub}</p>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+
+  <ContactSection />
+</Layout>

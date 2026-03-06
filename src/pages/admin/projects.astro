@@ -1,0 +1,20 @@
+---
+import '../../styles/global.css';
+import ProjectsManagerComponent from '../../components/admin/ProjectsManager';
+import AdminLayout from '../../components/admin/AdminLayout';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>Manage Projects - Bitsec Admin</title>
+	</head>
+	<body>
+		<AdminLayout client:only="react">
+			<ProjectsManagerComponent client:only="react" />
+		</AdminLayout>
+	</body>
+</html>

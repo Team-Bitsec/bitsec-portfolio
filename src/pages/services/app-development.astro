@@ -1,0 +1,164 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ContactSection from '../../components/home/ContactSection.astro';
+import { getLangFromUrl } from '../../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+
+const faq = [
+  {
+    question: lang === 'en' ? 'Do you build for iOS and Android?' : 'আপনারা iOS এবং Android উভয়ের জন্য কি অ্যাপ বানান?',
+    answer: lang === 'en' ? 'Yes! We build cross-platform apps using React Native and Flutter, so one codebase works on both iOS and Android.' : 'হ্যাঁ! আমরা React Native ও Flutter দিয়ে ক্রস-প্ল্যাটফর্ম অ্যাপ তৈরি করি — একটি কোডবেস iOS ও Android উভয়েই কাজ করে।'
+  },
+  {
+    question: lang === 'en' ? 'How long does app development take?' : 'অ্যাপ ডেভেলপমেন্টে কত সময় লাগে?',
+    answer: lang === 'en' ? 'A basic MVP app takes 8-12 weeks. A full-featured app typically takes 16-24 weeks depending on complexity.' : 'একটি basic MVP অ্যাপ ৮-১২ সপ্তাহ লাগে। পূর্ণাঙ্গ অ্যাপ সাধারণত ১৬-২৪ সপ্তাহ লাগে।'
+  },
+  {
+    question: lang === 'en' ? 'Do you publish the app to App Store and Play Store?' : 'আপনারা কি App Store ও Play Store-এ পাবলিশ করেন?',
+    answer: lang === 'en' ? 'Yes, we handle the entire publishing process — account setup, app submission, and approval process guidance.' : 'হ্যাঁ, আমরা পুরো পাবলিশিং প্রক্রিয়া পরিচালনা করি — অ্যাকাউন্ট সেটআপ, অ্যাপ সাবমিশন, এবং অ্যাপ্রুভাল।'
+  },
+  {
+    question: lang === 'en' ? 'What about after launch support?' : 'লঞ্চের পর কি সাপোর্ট পাওয়া যাবে?',
+    answer: lang === 'en' ? 'We provide post-launch support packages including bug fixes, OS updates compatibility, and feature additions.' : 'আমরা লঞ্চ-পরবর্তী সাপোর্ট প্যাকেজ দিই — বাগ ফিক্স, OS আপডেট সামঞ্জস্য এবং নতুন ফিচার যোগ।'
+  }
+];
+---
+
+<Layout
+  title={lang === 'en' ? 'App Development Bangladesh - Bitsec' : 'অ্যাপ ডেভেলপমেন্ট বাংলাদেশ - Bitsec'}
+  description={lang === 'en' ? 'Mobile app development company in Bangladesh. iOS & Android apps with React Native and Flutter.' : 'বাংলাদেশে মোবাইল অ্যাপ ডেভেলপমেন্ট। React Native ও Flutter দিয়ে iOS ও Android অ্যাপ।'}
+  faqSchema={faq}
+>
+  <div class="pt-32 pb-16 bg-gradient-to-b from-surface to-background dark:from-[#161B22] dark:to-background border-b border-border dark:border-border">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10">
+      <div class="inline-block bg-primary/10 dark:bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
+        {lang === 'en' ? 'App Development' : 'অ্যাপ ডেভেলপমেন্ট'}
+      </div>
+      <h1 class="text-4xl md:text-6xl font-bold text-text-primary dark:text-white mb-6">
+        {lang === 'en' ? 'Mobile Apps That Users Love' : 'মোবাইল অ্যাপ যা ব্যবহারকারীরা পছন্দ করে'}
+      </h1>
+      <p class="text-xl text-text-secondary dark:text-text-secondary mb-8">
+        {lang === 'en' ? 'iOS & Android apps with beautiful UI, robust backend, and App Store/Play Store publishing support.' : 'সুন্দর UI, শক্তিশালী ব্যাকেন্ড এবং App Store/Play Store পাবলিশিং সহ iOS ও Android অ্যাপ।'}
+      </p>
+      <a href="/contact" class="inline-flex items-center justify-center bg-primary text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-600 transition-colors shadow-lg shadow-primary/30">
+        {lang === 'en' ? 'Discuss Your App Idea' : 'আপনার অ্যাপ আইডিয়া শেয়ার করুন'}
+      </a>
+    </div>
+  </div>
+
+  <section class="py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div data-animate="fade-up">
+      <h2 class="text-3xl md:text-4xl font-bold text-text-primary dark:text-white mb-4 text-center">
+        {lang === 'en' ? 'Development Process' : 'ডেভেলপমেন্ট প্রক্রিয়া'}
+      </h2>
+      <p class="text-center text-text-secondary dark:text-text-secondary mb-14">
+        {lang === 'en' ? 'From idea to Play Store in 6 steps' : 'আইডিয়া থেকে Play Store পর্যন্ত ৬ ধাপে'}
+      </p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {[
+        { num: '01', icon: '💡', en: 'Discovery', bn: 'আইডিয়া', enSub: 'Requirements & scope', bnSub: 'প্রয়োজন ও আওতা' },
+        { num: '02', icon: '🎨', en: 'UI/UX Design', bn: 'ডিজাইন', enSub: 'Prototype & wireframes', bnSub: 'প্রোটোটাইপ ও ওয়্যারফ্রেম' },
+        { num: '03', icon: '⚙️', en: 'Development', bn: 'ডেভেলপমেন্ট', enSub: 'Agile sprints', bnSub: 'অ্যাজাইল স্প্রিন্ট' },
+        { num: '04', icon: '🧪', en: 'Testing', bn: 'টেস্টিং', enSub: 'QA & bug fixes', bnSub: 'QA ও বাগ ফিক্স' },
+        { num: '05', icon: '🚀', en: 'Launch', bn: 'লঞ্চ', enSub: 'Store submission', bnSub: 'স্টোরে সাবমিশন' },
+        { num: '06', icon: '🔄', en: 'Support', bn: 'সাপোর্ট', enSub: 'Maintenance & updates', bnSub: 'মেইনটেন্যান্স ও আপডেট' }
+      ].map((step, i) => (
+        <div class="bg-surface dark:bg-surface p-6 rounded-2xl border border-border dark:border-border relative" data-animate="fade-up" style={`transition-delay: ${i * 100}ms`}>
+          <div class="text-4xl mb-4">{step.icon}</div>
+          <div class="absolute top-4 right-4 text-5xl font-black text-primary/10 leading-none">{step.num}</div>
+          <h3 class="text-lg font-bold text-text-primary dark:text-white mb-2">{lang === 'en' ? step.en : step.bn}</h3>
+          <p class="text-sm text-text-secondary dark:text-text-secondary">{lang === 'en' ? step.enSub : step.bnSub}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  {/* Apps We Build */}
+  <section class="pb-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div data-animate="fade-up">
+      <h2 class="text-3xl md:text-4xl font-bold text-text-primary dark:text-white mb-4 text-center">
+        {lang === 'en' ? 'Apps We Build' : 'আমরা যা তৈরি করি'}
+      </h2>
+      <p class="text-center text-text-secondary dark:text-text-secondary mb-14">
+        {lang === 'en' ? 'Versatile, high-performance solutions for any industry' : 'যেকোনো শিল্পের জন্য বহুমুখী, হাই-পারফরম্যান্স সলিউশন'}
+      </p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {[
+        { icon: '🛒', en: 'E-Commerce', bn: 'ই-কমার্স', enSub: 'Feature-rich shopping experiences.', bnSub: 'ফিচার-সমৃদ্ধ শপিং অভিজ্ঞতা।' },
+        { icon: '🏥', en: 'Healthcare', bn: 'হেলথকেয়ার', enSub: 'Patient management & telemedicine.', bnSub: 'রোগী ব্যবস্থাপনা ও টেলিমেডিসিন।' },
+        { icon: '🏦', en: 'Fintech', bn: 'ফিনটেক', enSub: 'Secure payments & financial tools.', bnSub: 'নিরাপদ পেমেন্ট ও আর্থিক টুলস।' },
+        { icon: '🎓', en: 'EdTech', bn: 'এডটেক', enSub: 'Learning platforms & course management.', bnSub: 'লার্নিং প্ল্যাটফর্ম ও কোর্স ম্যানেজমেন্ট।' },
+        { icon: '🚚', en: 'Logistics', bn: 'লজিস্টিকস', enSub: 'Real-time tracking & delivery apps.', bnSub: 'রিয়েল-টাইম ট্র্যাকিং ও ডেলিভারি অ্যাপস।' },
+        { icon: '🌐', en: 'Social Apps', bn: 'সোশ্যাল অ্যাপস', enSub: 'Community building & networking.', bnSub: 'কমিউনিটি বিল্ডিং ও নেটওয়ার্কিং।' }
+      ].map((cat, i) => (
+        <div class="bg-surface dark:bg-surface p-6 rounded-2xl border border-border dark:border-border hover:border-primary hover:shadow-md transition-all duration-200" data-animate="fade-up" style={`transition-delay: ${i * 100}ms`}>
+          <div class="text-4xl mb-4">{cat.icon}</div>
+          <h3 class="text-lg font-bold text-text-primary dark:text-white mb-2">{lang === 'en' ? cat.en : cat.bn}</h3>
+          <p class="text-sm text-text-secondary dark:text-text-secondary">{lang === 'en' ? cat.enSub : cat.bnSub}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="py-16 bg-surface dark:bg-[var(--theme-surface-2)] border-y border-border dark:border-border">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl md:text-3xl font-bold text-text-primary dark:text-white text-center mb-10">
+        {lang === 'en' ? 'Tech Stack' : 'প্রযুক্তি স্ট্যাক'}
+      </h2>
+      <div class="flex flex-wrap justify-center gap-4">
+        {['React Native', 'Flutter', 'Dart', 'TypeScript', 'Firebase', 'Supabase', 'Node.js', 'REST API', 'GraphQL', 'Play Store', 'App Store'].map(tech => (
+          <span class="bg-white dark:bg-background px-5 py-2.5 rounded-full border border-border dark:border-border text-sm font-medium text-text-primary dark:text-gray-200 shadow-sm hover:border-primary hover:text-primary transition-colors cursor-default">
+            {tech}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl md:text-4xl font-bold text-text-primary dark:text-white text-center mb-14">FAQ</h2>
+    <div class="space-y-4">
+      {faq.map((item) => (
+        <details class="group bg-surface dark:bg-surface rounded-xl border border-border dark:border-border p-5 open:border-primary transition-colors">
+          <summary class="flex justify-between items-center cursor-pointer font-semibold text-text-primary dark:text-white list-none">
+            {item.question}
+            <span class="text-primary text-xl group-open:rotate-180 transition-transform ml-4 flex-shrink-0">+</span>
+          </summary>
+          <p class="mt-4 text-text-secondary dark:text-text-secondary leading-relaxed">{item.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <ContactSection />
+</Layout>
+
+<script>
+  const animatedEls = document.querySelectorAll('[data-animate="fade-up"]');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement;
+          const delay = el.style.transitionDelay;
+          el.style.transition = `opacity 0.6s ease ${delay}, transform 0.6s ease ${delay}`;
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+          observer.unobserve(el);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  animatedEls.forEach((el) => {
+    const htmlEl = el as HTMLElement;
+    htmlEl.style.opacity = '0';
+    htmlEl.style.transform = 'translateY(32px)';
+    // Initial transition without delay to apply the starting state
+    htmlEl.style.transition = 'none'; 
+    observer.observe(el);
+  });
+</script>

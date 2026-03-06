@@ -1,0 +1,56 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ContactSection from '../../components/home/ContactSection.astro';
+import { useTranslations } from '../../i18n/utils';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../../lib/firebase';
+
+const t = useTranslations('bn');
+
+let posts: any[] = [];
+try {
+  const querySnapshot = await getDocs(collection(db, 'blogs'));
+  querySnapshot.forEach((doc) => {
+    posts.push({ id: doc.id, ...doc.data() });
+  });
+} catch (error) {
+  console.error("Error fetching blogs from Firebase:", error);
+}
+
+// Sort by date descending
+const sortedPosts = posts.sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
+---
+
+<Layout title="আমাদের ব্লগ - Bitsec">
+	<div class="pt-32 pb-16 bg-gradient-to-b from-surface to-background dark:from-[#161B22] dark:to-background border-b border-border dark:border-border">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10">
+			<h1 class="text-4xl md:text-6xl font-bold text-text-primary dark:text-white mb-6">আমাদের ব্লগ ও কেস স্টাডি</h1>
+			<p class="text-xl text-text-secondary dark:text-text-secondary max-w-3xl mx-auto">
+				প্রযুক্তি, ডিজিটাল মার্কেটিং এবং ব্যবসার প্রবৃদ্ধি নিয়ে আমাদের এক্সপার্টদের লেখা পড়ুন।
+			</p>
+		</div>
+	</div>
+
+	<section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+			{sortedPosts.map(post => (
+				<a href={`/blog/${post.id}`} class="group block bg-surface dark:bg-surface rounded-2xl overflow-hidden border border-border dark:border-border shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+					{post.image && (
+                        <div class="aspect-video w-full overflow-hidden">
+                            <img src={post.image} alt={post.title} loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" />
+                        </div>
+                    )}
+					<div class="p-6">
+                        <div class="text-xs text-text-secondary dark:text-text-secondary mb-3">
+                            {new Date(post.date).toLocaleDateString('bn-BD', { year: 'numeric', month: 'long', day: 'numeric' })}
+                        </div>
+                        <h3 class="text-xl font-bold text-text-primary dark:text-white group-hover:text-primary transition-colors mb-2">{post.title}</h3>
+                        <p class="text-text-secondary dark:text-text-secondary text-sm">{post.excerpt}</p>
+                    </div>
+				</a>
+			))}
+		</div>
+	</section>
+
+	<ContactSection />
+</Layout>

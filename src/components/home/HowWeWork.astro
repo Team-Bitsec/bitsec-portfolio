@@ -1,0 +1,141 @@
+---
+import { getLangFromUrl } from '../../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+
+const steps = [
+  {
+    number: '01',
+    titleEN: 'Discovery & Strategy',
+    titleBN: 'পরিকল্পনা ও কৌশল',
+    descEN: 'We listen carefully, understand your goals, and craft a tailored strategy that fits your budget and timeline.',
+    descBN: 'আমরা মনোযোগ দিয়ে শুনি, আপনার লক্ষ্য বুঝি এবং সে অনুযায়ী সঠিক কৌশল তৈরি করি।',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>`,
+    color: 'from-[var(--theme-primary)] to-[var(--theme-accent)]',
+  },
+  {
+    number: '02',
+    titleEN: 'UI/UX Design',
+    titleBN: 'UI/UX ডিজাইন',
+    descEN: 'We design intuitive and stunning digital experiences focused on your target audience.',
+    descBN: 'আপনার টার্গেট অডিয়েন্সের কথা মাথায় রেখে আমরা আকর্ষণীয় ও ব্যবহারবান্ধব ডিজাইন তৈরি করি।',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>`,
+    color: 'from-[var(--theme-accent)] to-[var(--theme-primary)]',
+  },
+  {
+    number: '03',
+    titleEN: 'Development',
+    titleBN: 'ডেভেলপমেন্ট',
+    descEN: 'Our team builds fast, secure, and scalable solutions with clean code and modern technologies.',
+    descBN: 'আমাদের দল আধুনিক প্রযুক্তি ব্যবহার করে দ্রুত, সুরক্ষিত ও স্কেলেবল সলিউশন ডেভেলপ করে।',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
+    color: 'from-[var(--theme-primary)] to-[var(--theme-accent)]',
+  },
+  {
+    number: '04',
+    titleEN: 'Launch & Support',
+    titleBN: 'লঞ্চ ও দীর্ঘমেয়াদী সাপোর্ট',
+    descEN: 'We deploy your project seamlessly and provide continuous support and maintenance.',
+    descBN: 'আমরা প্রজেক্ট নিরবচ্ছিন্নভাবে লাইভ করি এবং পরবর্তী সাপোর্ট ও মেইনটেন্যান্স নিশ্চিত করি।',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>`,
+    color: 'from-[var(--theme-accent)] to-[var(--theme-primary)]',
+  }
+];
+---
+
+<section class="py-24 relative overflow-hidden">
+  {/* Ambient background blobs */}
+  <div class="absolute top-0 left-1/4 w-72 h-72 bg-[var(--theme-primary)]/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+  <div class="absolute bottom-0 right-1/4 w-72 h-72 bg-[var(--theme-accent)]/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    {/* Section Header */}
+    <div class="text-center mb-20"
+      data-animate="fade-up">
+      <span class="inline-block text-xs font-bold uppercase tracking-widest text-[var(--theme-primary)] bg-[var(--theme-primary)]/10 px-4 py-1.5 rounded-full mb-4">
+        {lang === 'en' ? 'Our Process' : 'আমাদের প্রক্রিয়া'}
+      </span>
+      <h2 class="text-3xl md:text-5xl font-bold text-text-primary dark:text-white mb-4 leading-tight">
+        {lang === 'en' ? 'How We Work' : 'আমরা কীভাবে কাজ করি'}
+      </h2>
+      <p class="text-lg text-text-secondary dark:text-text-secondary max-w-xl mx-auto">
+        {lang === 'en'
+          ? 'A simple, transparent process designed around your success.'
+          : 'আপনার সাফল্যকে কেন্দ্র করে তৈরি একটি সহজ ও স্বচ্ছ প্রক্রিয়া।'}
+      </p>
+    </div>
+
+    {/* Steps */}
+    <div class="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6">
+
+      {/* Gradient connector line — desktop only */}
+      <div class="hidden md:block absolute top-[3.5rem] left-[20%] right-[20%] h-0.5 bg-gradient-to-r from-[var(--theme-primary)] via-[var(--theme-accent)] to-[var(--theme-primary)] opacity-30 z-0"></div>
+
+      {steps.map((step, i) => (
+        <div class="relative z-10 group" data-animate="fade-up" style={`animation-delay: ${i * 0.15}s`}>
+          <div class="bg-white dark:bg-[#18181b] rounded-2xl border border-zinc-200 dark:border-zinc-800 p-8 h-full shadow-sm hover:shadow-lg hover:shadow-[var(--theme-primary)]/10 hover:-translate-y-2 transition-all duration-300 flex flex-col">
+
+            {/* Top row: icon + step number */}
+            <div class="flex items-center gap-4 mb-6">
+              {/* Icon circle */}
+              <div class={`relative w-14 h-14 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center text-white shadow-md flex-shrink-0`}>
+                <Fragment set:html={step.icon} />
+                {/* Step badge */}
+                <span class="absolute -top-2 -right-2 w-6 h-6 bg-white dark:bg-zinc-900 border-2 border-[var(--theme-primary)] text-[var(--theme-primary)] text-xs font-extrabold rounded-full flex items-center justify-center shadow">
+                  {i + 1}
+                </span>
+              </div>
+              {/* Large faded step number */}
+              <span class="text-6xl font-black text-zinc-100 dark:text-zinc-800 select-none leading-none">{step.number}</span>
+            </div>
+
+            <h3 class="text-xl font-bold text-text-primary dark:text-white mb-3 group-hover:text-[var(--theme-primary)] transition-colors">
+              {lang === 'en' ? step.titleEN : step.titleBN}
+            </h3>
+            <p class="text-text-secondary dark:text-text-secondary leading-relaxed flex-grow">
+              {lang === 'en' ? step.descEN : step.descBN}
+            </p>
+
+            {/* Bottom accent bar */}
+            <div class={`mt-6 h-1 w-12 rounded-full bg-gradient-to-r ${step.color} group-hover:w-full transition-all duration-500`}></div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  // Scroll-triggered entrance animations — respects prefers-reduced-motion
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const howWeWorkEls = document.querySelectorAll('[data-animate="fade-up"]');
+
+  if (prefersReduced) {
+    howWeWorkEls.forEach((el) => {
+      (el as HTMLElement).style.opacity = '1';
+      (el as HTMLElement).style.transform = 'none';
+    });
+  } else {
+    const howWeWorkObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            (entry.target as HTMLElement).style.opacity = '1';
+            (entry.target as HTMLElement).style.transform = 'translateY(0)';
+            howWeWorkObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    howWeWorkEls.forEach((el) => {
+      const htmlEl = el as HTMLElement;
+      htmlEl.style.opacity = '0';
+      htmlEl.style.transform = 'translateY(32px)';
+      htmlEl.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      howWeWorkObserver.observe(el);
+    });
+  }
+</script>

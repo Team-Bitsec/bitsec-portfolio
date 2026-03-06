@@ -1,0 +1,73 @@
+---
+import { getLangFromUrl, useTranslatedPath } from '../../i18n/utils';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../../lib/firebase';
+
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
+
+let allPosts: any[] = [];
+try {
+  const querySnapshot = await getDocs(collection(db, 'blogs'));
+  querySnapshot.forEach((doc) => {
+    allPosts.push({ id: doc.id, ...doc.data() });
+  });
+} catch (error) {
+  console.error("Error fetching blogs from Firebase:", error);
+}
+
+const latestPosts = allPosts
+  .sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf())
+  .slice(0, 3);
+
+const formatDate = (dateValue: string) => {
+  const date = new Date(dateValue);
+  return date.toLocaleDateString(lang === 'bn' ? 'bn-BD' : 'en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+};
+---
+
+<section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+    <div>
+      <div class="inline-block bg-primary/10 dark:bg-primary/20 text-primary px-4 py-1.5 rounded-full text-sm font-semibold mb-4">
+        {lang === 'en' ? 'Blog & Insights' : 'ব্লগ ও আইডিয়া'}
+      </div>
+      <h2 class="text-3xl md:text-5xl font-bold text-text-primary dark:text-white mb-4">
+        {lang === 'en' ? 'Latest Articles' : 'সর্বশেষ আর্টিকেলসমূহ'}
+      </h2>
+      <p class="text-lg text-text-secondary dark:text-text-secondary max-w-xl">
+        {lang === 'en'
+          ? 'Stay updated with the latest trends in web, app, design and cybersecurity.'
+          : 'ওয়েব, অ্যাপ, ডিজাইন এবং সাইবার নিরাপত্তার সর্বশেষ তথ্য পড়ুন।'}
+      </p>
+    </div>
+    <a href={translatePath('/blog')} class="inline-flex items-center text-primary font-medium hover:text-blue-600 transition-colors whitespace-nowrap">
+      {lang === 'en' ? 'View All Articles' : 'সব আর্টিকেল দেখুন'}
+      <span class="ml-2">→</span>
+    </a>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {latestPosts.map(post => (
+      <a href={translatePath(`/blog/${post.id}`)} class="group block">
+        <div class="relative rounded-2xl overflow-hidden aspect-video mb-5 shadow-sm border border-border dark:border-border">
+          <img
+            src={post.image || 'https://images.unsplash.com/photo-1432821596592-e2c18b78144f?q=80&w=800&auto=format&fit=crop'}
+            alt={post.title}
+            loading="lazy"
+            class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500 ease-out"
+          />
+        </div>
+        <h3 class="text-lg font-bold text-text-primary dark:text-white group-hover:text-primary transition-colors mb-2 leading-snug">
+          {post.title}
+        </h3>
+        <p class="text-sm text-text-secondary dark:text-text-secondary line-clamp-2 mb-3">{post.excerpt}</p>
+        <time class="text-xs text-text-secondary dark:text-text-muted">{formatDate(post.date)}</time>
+      </a>
+    ))}
+  </div>
+</section>

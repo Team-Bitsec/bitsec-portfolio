@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Royal Blue Scale ── */
+  --color-blue-50: #EEF3FF;
+  --color-blue-100: #C5D6FF;
+  --color-blue-300: #6B9AFF;
+  --color-blue-500: #0057FF;
+  --color-blue-700: #0040C0;
+  --color-blue-900: #002A80;
+
+  /* ── Cyber Teal Scale ── */
+  --color-teal-50: #E0FAF7;
+  --color-teal-100: #A0EDE3;
+  --color-teal-300: #40D4C0;
+  --color-teal-500: #00C2A8;
+  --color-teal-700: #009980;
+  --color-teal-900: #006B5C;
+
+  /* ── CTA Orange Scale ── */
+  --color-cta-primary: #FF5A00;
+  --color-cta-secondary: #FF8F00;
+
+  /* ── Unified Semantic Tokens (single source of truth) ── */
+  --color-primary: #0057FF;
+  --color-accent: #00C2A8;
+  --color-background: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-surface-2: #EEF3FF;
+  --color-text-primary: #0D1B2A;
+  --color-text-secondary: #5A6A7E;
+  --color-warning: #F97316;
+  --color-border: #DDE5F0;
+}
+
+@layer base {
+
+  /* ────────────────────────────────────────
+     LIGHT MODE — single unified token set
+  ──────────────────────────────────────── */
+  :root {
+    --theme-primary: #0057FF;
+    --theme-accent: #0040C0;
+    --theme-background: #F8FAFC;
+    --theme-surface: #FFFFFF;
+    --theme-surface-2: #EEF3FF;
+    --theme-text-primary: #0D1B2A;
+    --theme-text-secondary: #5A6A7E;
+    --theme-warning: #F97316;
+    --theme-border: #DDE5F0;
+  }
+
+  /* ────────────────────────────────────────
+     DARK MODE — GitHub-style consistent surfaces
+  ──────────────────────────────────────── */
+  .dark {
+    --theme-primary: #4D8FFF;
+    --theme-accent: #00C2A8;
+    --theme-background: #0D1117;
+    --theme-surface: #161B22;
+    --theme-surface-2: #1C2128;
+    --theme-text-primary: #E6EDF3;
+    --theme-text-secondary: #8B949E;
+    --theme-warning: #F97316;
+    --theme-border: #30363D;
+  }
+
+  /* ── Accessibility: Respect prefers-reduced-motion ── */
+  @media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+body {
+  @apply bg-[var(--theme-background)] text-[var(--theme-text-primary)] antialiased transition-colors duration-300;
+  font-family: 'Inter', 'Hind Siliguri', sans-serif;
+}
+
+/* Bangla body text */
+html[lang="bn"] body {
+  font-family: 'Inter', 'Hind Siliguri', sans-serif;
+  word-break: break-word;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Bangla headings → Noto Sans Bengali for clean rendering */
+html[lang="bn"] h1,
+html[lang="bn"] h2,
+html[lang="bn"] h3,
+html[lang="bn"] h4,
+html[lang="bn"] h5,
+html[lang="bn"] h6 {
+  font-family: 'Noto Sans Bengali', 'Hind Siliguri', sans-serif;
+}
+
+/* Enhancing Readability for Bengali */
+html[lang="bn"] body {
+  @apply leading-[1.8];
+}
+
+/* ── Global Shared Keyframes ── */
+@keyframes gradientShimmer {
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes floatAnimation {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+@keyframes pulseSlow {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.65;
+  }
+}
+
+@keyframes pulseWidth {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scaleX(0.85);
+  }
+}
+
+.animate-gradient-shimmer {
+  background-size: 200% auto;
+  animation: gradientShimmer 3s linear infinite;
+}
