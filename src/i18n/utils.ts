@@ -4,7 +4,7 @@ export function getLangFromUrl(url: URL) {
     const basePath = import.meta.env.BASE_URL;
     let pathname = url.pathname;
     if (basePath !== '/' && pathname.startsWith(basePath)) {
-        pathname = pathname.substring(basePath.length - 1);
+        pathname = pathname.substring(basePath.length);
         if (!pathname.startsWith('/')) pathname = '/' + pathname;
     }
     const [, lang] = pathname.split('/');

@@ -23,7 +23,7 @@ const lang = getLangFromUrl(Astro.url);
 const basePath = import.meta.env.BASE_URL;
 let currentPath = Astro.url.pathname;
 if (basePath !== '/' && currentPath.startsWith(basePath)) {
-    currentPath = currentPath.substring(basePath.length - 1);
+    currentPath = currentPath.substring(basePath.length);
     if (!currentPath.startsWith('/')) currentPath = '/' + currentPath;
 }
 
@@ -147,7 +147,7 @@ const faqJsonLd = faqSchema.length > 0 ? {
 				let currentPath = window.location.pathname;
 				
 				if (basePath !== '/' && currentPath.startsWith(basePath)) {
-					currentPath = currentPath.substring(basePath.length - 1);
+					currentPath = currentPath.substring(basePath.length);
 					if (!currentPath.startsWith('/')) currentPath = '/' + currentPath;
 				}
 
