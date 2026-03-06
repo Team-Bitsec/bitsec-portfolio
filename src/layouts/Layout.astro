@@ -122,7 +122,7 @@ const faqJsonLd = faqSchema.length > 0 ? {
 		<script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
 		{faqJsonLd && <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />}
 
-		<script is:inline>
+		<script is:inline define:vars={{ basePath }}>
 			// Theme preference
 			const theme = (() => {
 				if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
@@ -144,7 +144,6 @@ const faqJsonLd = faqSchema.length > 0 ? {
 			// Language preference — default: English ('en')
 			(function() {
 				const savedLang = localStorage.getItem('lang');
-				const basePath = import.meta.env.BASE_URL;
 				let currentPath = window.location.pathname;
 				
 				if (basePath !== '/' && currentPath.startsWith(basePath)) {
