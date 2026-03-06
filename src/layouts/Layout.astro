@@ -46,7 +46,7 @@ const orgSchema = {
   "@type": ["Organization", "LocalBusiness"],
   "name": "BitsecIT",
   "url": siteOrigin,
-  "logo": siteOrigin + "/logo.png",
+  "logo": siteOrigin + (import.meta.env.BASE_URL === "/" ? "" : import.meta.env.BASE_URL) + "/logo.png",
   "description": "Bangladesh-এর সেরা ডিজিটাল সার্ভিস কোম্পানি। Web Development, App Development, Graphics Design ও Penetration Testing।",
 
   "contactPoint": {
@@ -79,9 +79,9 @@ const faqJsonLd = faqSchema.length > 0 ? {
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" type="image/png" href="/logo.png" />
-		<link rel="apple-touch-icon" href="/logo.png" />
+		<link rel="icon" type="image/svg+xml" href={(import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL) + "/favicon.svg"} />
+		<link rel="icon" type="image/png" href={(import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL) + "/logo.png"} />
+		<link rel="apple-touch-icon" href={(import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL) + "/logo.png"} />
 		<meta name="theme-color" content="#0057FF" />
 		<meta name="generator" content={Astro.generator} />
         

@@ -73,7 +73,7 @@ export default function Dashboard() {
                     </div>
                     <h3 className="text-gray-500 text-sm font-medium">Total Projects</h3>
                     <p className="text-3xl font-bold text-gray-900 mt-2">{projectsCount}</p>
-                    <a href="/admin/projects" className="mt-4 text-[#0057FF] text-sm font-medium hover:underline">Manage Projects →</a>
+                    <a href={(import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL) + "/admin/projects"} className="mt-4 text-[#0057FF] text-sm font-medium hover:underline">Manage Projects →</a>
                 </div>
 
                 {/* Blogs Card */}
@@ -83,7 +83,7 @@ export default function Dashboard() {
                     </div>
                     <h3 className="text-gray-500 text-sm font-medium">Total Blogs</h3>
                     <p className="text-3xl font-bold text-gray-900 mt-2">{blogsCount}</p>
-                    <a href="/admin/blogs" className="mt-4 text-purple-600 text-sm font-medium hover:underline">Manage Blogs →</a>
+                    <a href={(import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL) + "/admin/blogs"} className="mt-4 text-purple-600 text-sm font-medium hover:underline">Manage Blogs →</a>
                 </div>
             </div>
         </div>

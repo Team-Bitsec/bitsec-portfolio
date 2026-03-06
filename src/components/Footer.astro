@@ -13,7 +13,7 @@ const currentYear = new Date().getFullYear();
     <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
       <div class="md:col-span-1">
         <a href={translatePath('/')} class="flex items-center gap-2.5 group mb-4">
-          <img src="/logo.svg" alt="BitsecIT Logo" class="w-8 h-8 object-contain" />
+          <img src={(import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL) + "/logo.svg"} alt="BitsecIT Logo" class="w-8 h-8 object-contain" />
           <span class="text-xl tracking-wide text-text-primary dark:text-white font-extrabold italic" style="font-family: 'Plus Jakarta Sans', sans-serif;">
             Bitsec<span class="bg-gradient-to-r from-[#0057FF] to-[#00C2A8] bg-clip-text text-transparent">IT</span>
           </span>

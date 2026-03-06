@@ -13,13 +13,15 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             setUser(currentUser);
             setLoading(false);
 
+            const basePath = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
             const currentPath = window.location.pathname.replace(/\/$/, "");
-            const isLoginPage = currentPath === '/admin';
+            const adminBase = `${basePath}/admin`;
+            const isLoginPage = currentPath === adminBase;
 
             if (!currentUser && !isLoginPage) {
-                window.location.href = '/admin';
+                window.location.href = adminBase;
             } else if (currentUser && isLoginPage) {
-                window.location.href = '/admin/dashboard';
+                window.location.href = `${adminBase}/dashboard`;
             }
         });
         return () => unsubscribe();
@@ -33,8 +35,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         );
     }
 
+    const basePath = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
+    const adminBase = `${basePath}/admin`;
     const currentPath = pathname.replace(/\/$/, "");
-    if (currentPath === '/admin') {
+
+    if (currentPath === adminBase) {
         return <div className="font-sans antialiased bg-gray-50 text-gray-900 min-h-screen">{children}</div>;
     }
 
@@ -50,9 +55,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                     <h1 className="text-xl font-bold text-gray-800 tracking-tight">Bitsec Admin</h1>
                 </div>
                 <nav className="flex-1 p-4 space-y-2">
-                    <a href="/admin/dashboard" className={`block px-4 py-2 rounded-md transition-colors ${currentPath === '/admin/dashboard' ? 'bg-[#0057FF]/10 text-[#0057FF] font-medium' : 'text-gray-600 hover:bg-gray-100'}`}>Dashboard</a>
-                    <a href="/admin/projects" className={`block px-4 py-2 rounded-md transition-colors ${currentPath === '/admin/projects' ? 'bg-[#0057FF]/10 text-[#0057FF] font-medium' : 'text-gray-600 hover:bg-gray-100'}`}>Projects</a>
-                    <a href="/admin/blogs" className={`block px-4 py-2 rounded-md transition-colors ${currentPath === '/admin/blogs' ? 'bg-[#0057FF]/10 text-[#0057FF] font-medium' : 'text-gray-600 hover:bg-gray-100'}`}>Blogs</a>
+                    <a href={`${adminBase}/dashboard`} className={`block px-4 py-2 rounded-md transition-colors ${currentPath === `${adminBase}/dashboard` ? 'bg-[#0057FF]/10 text-[#0057FF] font-medium' : 'text-gray-600 hover:bg-gray-100'}`}>Dashboard</a>
+                    <a href={`${adminBase}/projects`} className={`block px-4 py-2 rounded-md transition-colors ${currentPath === `${adminBase}/projects` ? 'bg-[#0057FF]/10 text-[#0057FF] font-medium' : 'text-gray-600 hover:bg-gray-100'}`}>Projects</a>
+                    <a href={`${adminBase}/blogs`} className={`block px-4 py-2 rounded-md transition-colors ${currentPath === `${adminBase}/blogs` ? 'bg-[#0057FF]/10 text-[#0057FF] font-medium' : 'text-gray-600 hover:bg-gray-100'}`}>Blogs</a>
                 </nav>
                 <div className="p-4 border-t border-gray-200">
                     <button
