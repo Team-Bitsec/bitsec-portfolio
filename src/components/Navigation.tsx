@@ -7,9 +7,10 @@ import { ui } from '../i18n/ui';
 type NavigationProps = {
     lang: 'en' | 'bn';
     currentPath: string;
+    basePath?: string;
 };
 
-export default function Navigation({ lang, currentPath }: NavigationProps) {
+export default function Navigation({ lang, currentPath, basePath = '/' }: NavigationProps) {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -30,20 +31,25 @@ export default function Navigation({ lang, currentPath }: NavigationProps) {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const buildUrl = (path: string) => {
+        const b = basePath.endsWith('/') ? basePath.slice(0, -1) : basePath;
+        return `${b}${path === '/' ? '' : path}` || '/';
+    };
+
     const getLangSwitchUrl = () => {
         if (lang === 'en') {
             const newPath = currentPath.replace(/^\/en/, '');
-            return newPath === '' ? '/' : newPath;
+            return buildUrl(newPath === '' ? '/' : newPath);
         } else {
-            return currentPath === '/' ? '/en' : `/en${currentPath}`;
+            return buildUrl(currentPath === '/' ? '/en' : `/en${currentPath}`);
         }
     };
 
     const navPath = (href: string) => {
         if (lang === 'en') {
-            return href === '/' ? '/en' : `/en${href}`;
+            return buildUrl(href === '/' ? '/en' : `/en${href}`);
         }
-        return href;
+        return buildUrl(href);
     };
 
     return (

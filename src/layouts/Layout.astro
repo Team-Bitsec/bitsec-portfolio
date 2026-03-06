@@ -20,18 +20,33 @@ const {
     faqSchema = []
 } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
-const currentPath = Astro.url.pathname;
+const basePath = import.meta.env.BASE_URL;
+let currentPath = Astro.url.pathname;
+if (basePath !== '/' && currentPath.startsWith(basePath)) {
+    currentPath = currentPath.substring(basePath.length - 1);
+    if (!currentPath.startsWith('/')) currentPath = '/' + currentPath;
+}
+
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || Astro.url);
-const siteBase = Astro.site ? Astro.site.toString().replace(/\/$/, '') : 'https://bitsec.agency';
-const hreflangBN = currentPath.startsWith('/en') ? siteBase + currentPath.replace(/^\/en/, '') || '/' : siteBase + currentPath;
-const hreflangEN = currentPath.startsWith('/en') ? siteBase + currentPath : siteBase + '/en' + (currentPath === '/' ? '' : currentPath);
+const siteOrigin = Astro.site ? Astro.site.toString().replace(/\/$/, '') : 'https://bitsec.agency';
+
+const getFullUrl = (path: string) => {
+    const b = basePath.endsWith('/') ? basePath.slice(0, -1) : basePath;
+    return siteOrigin + b + (path === '/' ? '' : path);
+};
+
+const bnPath = currentPath.startsWith('/en') ? currentPath.replace(/^\/en/, '') || '/' : currentPath;
+const enPath = currentPath.startsWith('/en') ? currentPath : '/en' + (currentPath === '/' ? '' : currentPath);
+
+const hreflangBN = getFullUrl(bnPath);
+const hreflangEN = getFullUrl(enPath);
 
 const orgSchema = {
   "@context": "https://schema.org",
   "@type": ["Organization", "LocalBusiness"],
   "name": "BitsecIT",
-  "url": siteBase,
-  "logo": siteBase + "/logo.png",
+  "url": siteOrigin,
+  "logo": siteOrigin + "/logo.png",
   "description": "Bangladesh-এর সেরা ডিজিটাল সার্ভিস কোম্পানি। Web Development, App Development, Graphics Design ও Penetration Testing।",
 
   "contactPoint": {
@@ -127,36 +142,44 @@ const faqJsonLd = faqSchema.length > 0 ? {
 			window.localStorage.setItem('theme', theme);
 
 			// Language preference — default: English ('en')
-			// Only redirect on the very first visit (no saved preference)
 			(function() {
 				const savedLang = localStorage.getItem('lang');
-				const currentPath = window.location.pathname;
+				const basePath = import.meta.env.BASE_URL;
+				let currentPath = window.location.pathname;
+				
+				if (basePath !== '/' && currentPath.startsWith(basePath)) {
+					currentPath = currentPath.substring(basePath.length - 1);
+					if (!currentPath.startsWith('/')) currentPath = '/' + currentPath;
+				}
+
 				const isEnPath = currentPath.startsWith('/en') || currentPath === '/en';
 				const isBnPath = !isEnPath;
 
+				const redirect = (path) => {
+					const b = basePath.endsWith('/') ? basePath.slice(0, -1) : basePath;
+					window.location.replace((b + (path === '/' ? '' : path)) || '/');
+				};
+
 				if (!savedLang) {
-					// First visit — default to English
 					localStorage.setItem('lang', 'en');
 					if (isBnPath) {
-						// Redirect BN path -> EN path
 						const enPath = currentPath === '/' ? '/en' : '/en' + currentPath;
-						window.location.replace(enPath);
+						redirect(enPath);
 					}
 				} else {
-					// Returning visitor — redirect to their saved language if mismatch
 					if (savedLang === 'bn' && isEnPath) {
 						const bnPath = currentPath.replace(/^\/en/, '') || '/';
-						window.location.replace(bnPath);
+						redirect(bnPath);
 					} else if (savedLang === 'en' && isBnPath) {
 						const enPath = currentPath === '/' ? '/en' : '/en' + currentPath;
-						window.location.replace(enPath);
+						redirect(enPath);
 					}
 				}
 			})();
 		</script>
 	</head>
 	<body class="flex flex-col min-h-screen" style="padding-bottom: env(safe-area-inset-bottom);">
-		<Navigation client:load lang={lang} currentPath={currentPath} />
+		<Navigation client:load lang={lang} currentPath={currentPath} basePath={basePath} />
 		<main class="flex-grow pt-20">
 			<slot />
 		</main>
