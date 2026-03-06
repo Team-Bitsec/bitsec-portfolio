@@ -23,8 +23,8 @@ const translatePath = useTranslatedPath('en');
 		subtitle={t('hero.subtitle')}
 		primaryCta={t('hero.cta.primary')}
 		secondaryCta={t('hero.cta.secondary')}
-		primaryLink="/en/contact"
-		secondaryLink="/en/portfolio"
+		primaryLink={translatePath('/contact')}
+		secondaryLink={translatePath('/portfolio')}
 	/>
 	<TrustBar client:visible lang="en" />
 	<ServicesPreview />

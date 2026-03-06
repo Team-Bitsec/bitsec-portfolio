@@ -19,8 +19,12 @@ export function useTranslations(lang: keyof typeof ui) {
 }
 
 export function useTranslatedPath(lang: keyof typeof ui) {
+    const base = import.meta.env.BASE_URL;
+    // Normalize base: remove trailing slash (e.g. '/bitsec-portfolio' or '')
+    const b = base === '/' ? '' : base.replace(/\/$/, '');
     return function translatePath(path: string, l: string = lang) {
-        return !showDefaultLang && l === defaultLang ? path : `/${l}${path}`
+        const localePath = !showDefaultLang && l === defaultLang ? path : `/${l}${path}`;
+        return `${b}${localePath}`;
     }
 }
 
