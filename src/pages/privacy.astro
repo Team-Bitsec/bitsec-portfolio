@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { useTranslations } from '../i18n/utils';
+const t = useTranslations('bn');
+---
+<Layout title={t('privacy.title')} description={t('privacy.body')}>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+    <h1 class="text-4xl font-extrabold text-text-primary dark:text-white mb-6">{t('privacy.title')}</h1>
+    <p class="text-text-secondary dark:text-gray-400 text-lg leading-relaxed mb-6">
+      {t('privacy.body')}
+    </p>
+    <p class="text-text-secondary dark:text-gray-400">
+      যোগাযোগ: <a href="mailto:helpline.bitsec@gmail.com" class="text-primary underline">helpline.bitsec@gmail.com</a>
+    </p>
+  </div>
+</Layout>

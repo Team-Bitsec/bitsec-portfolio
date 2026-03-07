@@ -1,4 +1,5 @@
 import { ui, defaultLang } from './ui';
+import { normalizeBase } from '../lib/url';
 
 export function getLangFromUrl(url: URL) {
     const basePath = import.meta.env.BASE_URL;
@@ -19,9 +20,7 @@ export function useTranslations(lang: keyof typeof ui) {
 }
 
 export function useTranslatedPath(lang: keyof typeof ui) {
-    const base = import.meta.env.BASE_URL;
-    // Normalize base: remove trailing slash (e.g. '/bitsec-portfolio' or '')
-    const b = base === '/' ? '' : base.replace(/\/$/, '');
+    const b = normalizeBase(import.meta.env.BASE_URL);
     return function translatePath(path: string, l: string = lang) {
         const localePath = !showDefaultLang && l === defaultLang ? path : `/${l}${path}`;
         return `${b}${localePath}`;
@@ -29,3 +28,4 @@ export function useTranslatedPath(lang: keyof typeof ui) {
 }
 
 export const showDefaultLang = false;
+

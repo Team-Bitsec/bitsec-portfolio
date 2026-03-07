@@ -19,27 +19,25 @@ const currentYear = new Date().getFullYear();
           </span>
         </a>
         <p class="text-text-secondary dark:text-gray-400 text-sm mb-6">
-          {lang === 'en' 
-            ? 'We build fast websites, beautiful apps, and keep your business cyber-safe.'
-            : 'ছোট ব্যবসা থেকে বড় এন্টারপ্রাইজ — সবার জন্য ডিজিটাল সমাধান নিয়ে আমরা কাজ করি।'}
+          {t('footer.tagline')}
         </p>
       </div>
 
       <div>
         <h3 class="font-semibold text-text-primary dark:text-white mb-4">
-          {lang === 'en' ? 'Services' : 'সার্ভিসসমূহ'}
+          {t('footer.services')}
         </h3>
         <ul class="space-y-3">
-          <li><a href={translatePath('/services/web-development')} class="text-sm text-text-secondary hover:text-primary dark:text-gray-400 dark:hover:text-white transition-colors">{lang === 'en' ? 'Web Development' : 'ওয়েব ডেভেলপমেন্ট'}</a></li>
-          <li><a href={translatePath('/services/app-development')} class="text-sm text-text-secondary hover:text-primary dark:text-gray-400 dark:hover:text-white transition-colors">{lang === 'en' ? 'App Development' : 'অ্যাপ ডেভেলপমেন্ট'}</a></li>
-          <li><a href={translatePath('/services/graphics-design')} class="text-sm text-text-secondary hover:text-primary dark:text-gray-400 dark:hover:text-white transition-colors">{lang === 'en' ? 'Graphics Design' : 'গ্রাফিক্স ডিজাইন'}</a></li>
-          <li><a href={translatePath('/services/penetration-testing')} class="text-sm text-text-secondary hover:text-primary dark:text-gray-400 dark:hover:text-white transition-colors">{lang === 'en' ? 'Penetration Testing' : 'পেনেট্রেশন টেস্টিং'}</a></li>
+          <li><a href={translatePath('/services/web-development')} class="text-sm text-text-secondary hover:text-primary dark:text-gray-400 dark:hover:text-white transition-colors">{t('services.web.title')}</a></li>
+          <li><a href={translatePath('/services/app-development')} class="text-sm text-text-secondary hover:text-primary dark:text-gray-400 dark:hover:text-white transition-colors">{t('services.app.title')}</a></li>
+          <li><a href={translatePath('/services/graphics-design')} class="text-sm text-text-secondary hover:text-primary dark:text-gray-400 dark:hover:text-white transition-colors">{t('services.design.title')}</a></li>
+          <li><a href={translatePath('/services/penetration-testing')} class="text-sm text-text-secondary hover:text-primary dark:text-gray-400 dark:hover:text-white transition-colors">{t('services.security.title')}</a></li>
         </ul>
       </div>
 
       <div>
         <h3 class="font-semibold text-text-primary dark:text-white mb-4">
-          {lang === 'en' ? 'Company' : 'কোম্পানি'}
+          {t('footer.company')}
         </h3>
         <ul class="space-y-3">
           <li><a href={translatePath('/about')} class="text-sm text-text-secondary hover:text-primary dark:text-gray-400 dark:hover:text-white transition-colors">{t('nav.about')}</a></li>
@@ -51,10 +49,9 @@ const currentYear = new Date().getFullYear();
 
       <div>
         <h3 class="font-semibold text-text-primary dark:text-white mb-4">
-          {lang === 'en' ? 'Connect' : 'যোগাযোগ'}
+          {t('footer.connect')}
         </h3>
         <ul class="space-y-3">
-
           <li class="text-sm text-text-secondary dark:text-gray-400">✉️ helpline.bitsec@gmail.com</li>
           <li class="text-sm text-text-secondary dark:text-gray-400">📞 +880 1805543229</li>
         </ul>
@@ -80,12 +77,13 @@ const currentYear = new Date().getFullYear();
     
     <div class="border-t border-border dark:border-[#30363D] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
       <p class="text-xs text-text-secondary dark:text-gray-500">
-        &copy; {currentYear} BitsecIT. {lang === 'en' ? 'All rights reserved.' : 'সর্বস্বত্ব সংরক্ষিত।'}
+        &copy; {currentYear} BitsecIT. {t('footer.copyright')}
       </p>
       <div class="flex gap-4">
-        <a href="#" class="text-xs text-text-secondary hover:text-primary dark:text-gray-500 dark:hover:text-white transition-colors">Privacy Policy</a>
-        <a href="#" class="text-xs text-text-secondary hover:text-primary dark:text-gray-500 dark:hover:text-white transition-colors">Terms of Service</a>
+        <a href={translatePath('/privacy')} class="text-xs text-text-secondary hover:text-primary dark:text-gray-500 dark:hover:text-white transition-colors">{t('footer.privacy')}</a>
+        <a href={translatePath('/terms')} class="text-xs text-text-secondary hover:text-primary dark:text-gray-500 dark:hover:text-white transition-colors">{t('footer.terms')}</a>
       </div>
     </div>
   </div>
 </footer>
+

@@ -1,12 +1,13 @@
 ---
-import { getLangFromUrl } from '../../i18n/utils';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const stats = [
-  { value: '50+', label: lang === 'en' ? 'Projects Delivered' : 'প্রজেক্ট সম্পন্ন', numeric: 50, suffix: '+' },
-  { value: '25+', label: lang === 'en' ? 'Happy Clients' : 'সন্তুষ্ট ক্লায়েন্ট', numeric: 25, suffix: '+' },
-  { value: '4+',  label: lang === 'en' ? 'Years Experience' : 'বছরের অভিজ্ঞতা', numeric: 4,  suffix: '+' },
-  { value: '100%', label: lang === 'en' ? 'Satisfaction Rate' : 'সন্তুষ্টির হার', numeric: 100, suffix: '%' },
+  { value: '50+', label: t('trustbar.projects'), numeric: 50, suffix: '+' },
+  { value: '25+', label: t('trustbar.clients'),  numeric: 25, suffix: '+' },
+  { value: '4+',  label: t('trustbar.experience'), numeric: 4,  suffix: '+' },
+  { value: '100%', label: t('trustbar.satisfaction'), numeric: 100, suffix: '%' },
 ];
 ---
 

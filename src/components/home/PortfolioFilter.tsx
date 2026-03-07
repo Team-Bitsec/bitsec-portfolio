@@ -18,12 +18,14 @@ interface Work {
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../lib/firebase';
 
+import { ui } from '../../i18n/ui';
+
 const filters = [
-    { key: 'all', labelEN: 'All', labelBN: 'সব' },
-    { key: 'web', labelEN: 'Web', labelBN: 'ওয়েব' },
-    { key: 'app', labelEN: 'App', labelBN: 'অ্যাপ' },
-    { key: 'design', labelEN: 'Design', labelBN: 'ডিজাইন' },
-    { key: 'security', labelEN: 'Security', labelBN: 'সিকিউরিটি' },
+    { key: 'all', label: (l: 'en' | 'bn') => ui[l]['portfolio.filter.all'] },
+    { key: 'web', label: (l: 'en' | 'bn') => ui[l]['portfolio.filter.web'] },
+    { key: 'app', label: (l: 'en' | 'bn') => ui[l]['portfolio.filter.app'] },
+    { key: 'design', label: (l: 'en' | 'bn') => ui[l]['portfolio.filter.design'] },
+    { key: 'security', label: (l: 'en' | 'bn') => ui[l]['portfolio.filter.security'] },
 ];
 
 interface PortfolioPreviewProps {
@@ -71,19 +73,21 @@ export default function PortfolioFilter({ lang, portfolioPath }: PortfolioPrevie
 
     const filtered = active === 'all' ? works : works.filter(w => w.filter === active);
 
+    const t = (key: keyof typeof ui['en']) => ui[lang][key] || ui['bn'][key];
+
     return (
         <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-6">
                 <div>
                     <h2 className="text-3xl md:text-5xl font-bold text-text-primary dark:text-white mb-4">
-                        {lang === 'en' ? 'Recent Work' : 'আমাদের অনবদ্য কাজগুলো'}
+                        {t('portfolio.heading')}
                     </h2>
                     <p className="text-lg text-text-secondary dark:text-text-secondary max-w-xl">
-                        {lang === 'en' ? 'Take a look at some of our successful digital projects.' : 'আমাদের সফল ডিজিটাল প্রজেক্টগুলোর এক ঝলক দেখে নিন।'}
+                        {t('portfolio.subheading')}
                     </p>
                 </div>
                 <a href={portfolioPath} className="inline-flex items-center text-primary font-medium hover:text-blue-600 transition-colors">
-                    {lang === 'en' ? 'View All Projects' : 'সব প্রজেক্ট দেখুন'}
+                    {t('portfolio.view.all')}
                     <span className="ml-2">→</span>
                 </a>
             </div>
@@ -99,7 +103,7 @@ export default function PortfolioFilter({ lang, portfolioPath }: PortfolioPrevie
                             : 'bg-surface dark:bg-surface text-text-secondary dark:text-text-secondary border border-border dark:border-border hover:border-primary hover:text-primary'
                             }`}
                     >
-                        {lang === 'en' ? f.labelEN : f.labelBN}
+                        {f.label(lang)}
                     </button>
                 ))}
             </div>
@@ -176,7 +180,7 @@ export default function PortfolioFilter({ lang, portfolioPath }: PortfolioPrevie
 
                                     <div className="flex items-center justify-between mt-4">
                                         <div className="flex items-center text-sm font-bold text-text-primary dark:text-white group-hover:text-primary transition-colors duration-300 w-max pb-1 relative">
-                                            {lang === 'en' ? 'Explore Project' : 'প্রজেক্ট বিস্তারিত'}
+                                            {t('portfolio.explore')}
                                             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
                                         </div>
                                         {work.link && (
@@ -188,7 +192,7 @@ export default function PortfolioFilter({ lang, portfolioPath }: PortfolioPrevie
                                                 }}
                                                 className="inline-flex items-center gap-1.5 text-xs font-semibold bg-primary/10 text-primary hover:bg-primary hover:text-white px-3 py-1.5 rounded-full transition-colors z-30 relative"
                                             >
-                                                {lang === 'en' ? 'Live Link' : 'লাইভ লিংক'}
+                                                {t('portfolio.live')}
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                                                     <polyline points="15 3 21 3 21 9"></polyline>

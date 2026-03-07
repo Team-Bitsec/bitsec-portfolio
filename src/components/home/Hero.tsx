@@ -10,6 +10,9 @@ interface HeroProps {
     secondaryCta: string;
     primaryLink: string;
     secondaryLink: string;
+    trustClients: string;
+    trustProjects: string;
+    trustReply: string;
 }
 
 // highlight phrases জন্য mapping
@@ -50,7 +53,7 @@ function HighlightedTitle({ title }: { title: string }) {
     return <>{title}</>;
 }
 
-export default function Hero({ lang = 'bn', title, subtitle, primaryCta, secondaryCta, primaryLink, secondaryLink }: HeroProps) {
+export default function Hero({ lang = 'bn', title, subtitle, primaryCta, secondaryCta, primaryLink, secondaryLink, trustClients, trustProjects, trustReply }: HeroProps) {
     return (
         <section className="relative overflow-hidden pt-24 pb-32 flex items-center min-h-[90vh]">
 
@@ -108,17 +111,17 @@ export default function Hero({ lang = 'bn', title, subtitle, primaryCta, seconda
                     >
                         <span className="flex items-center gap-1.5">
                             <span className="text-yellow-400">★★★★★</span>
-                            <span className="font-medium text-text-primary dark:text-white">25+</span> {lang === 'en' ? 'happy clients' : 'সন্তুষ্ট ক্লায়েন্ট'}
+                            <span className="font-medium text-text-primary dark:text-white">25+</span> {trustClients}
                         </span>
                         <span className="hidden sm:block w-px h-4 bg-border dark:bg-[#30363D]"></span>
                         <span className="flex items-center gap-1.5">
                             <span className="text-[#00C2A8]">✓</span>
-                            <span className="font-medium text-text-primary dark:text-white">50+</span> {lang === 'en' ? 'projects delivered' : 'প্রজেক্ট সম্পন্ন'}
+                            <span className="font-medium text-text-primary dark:text-white">50+</span> {trustProjects}
                         </span>
                         <span className="hidden sm:block w-px h-4 bg-border dark:bg-[#30363D]"></span>
                         <span className="flex items-center gap-1.5">
                             <span className="text-[#0057FF]">⚡</span>
-                            {lang === 'en' ? 'Reply within 2 hrs' : '২ ঘণ্টায় রিপ্লাই'}
+                            {trustReply}
                         </span>
                     </motion.div>
 

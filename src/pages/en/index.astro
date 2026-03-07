@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/home/Hero';
-import TrustBar from '../../components/home/TrustBar';
+import TrustBar from '../../components/home/TrustBar.astro';
 import ServicesPreview from '../../components/home/ServicesPreview.astro';
 import HowWeWork from '../../components/home/HowWeWork.astro';
 import PortfolioFilter from '../../components/home/PortfolioFilter';
@@ -25,8 +25,11 @@ const translatePath = useTranslatedPath('en');
 		secondaryCta={t('hero.cta.secondary')}
 		primaryLink={translatePath('/contact')}
 		secondaryLink={translatePath('/portfolio')}
+		trustClients={t('hero.trust.clients')}
+		trustProjects={t('hero.trust.projects')}
+		trustReply={t('hero.trust.reply')}
 	/>
-	<TrustBar client:visible lang="en" />
+	<TrustBar />
 	<ServicesPreview />
 	<HowWeWork />
 	<PortfolioFilter client:visible lang="en" portfolioPath={translatePath('/portfolio')} />

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Globe, Menu, X } from 'lucide-react';
 import { cn } from '../utils/cn';
 import { ui } from '../i18n/ui';
+import { buildUrl } from '../lib/url';
 
 type NavigationProps = {
     lang: 'en' | 'bn';
@@ -31,25 +32,22 @@ export default function Navigation({ lang, currentPath, basePath = '/' }: Naviga
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const buildUrl = (path: string) => {
-        const b = basePath.endsWith('/') ? basePath.slice(0, -1) : basePath;
-        return `${b}${path === '/' ? '' : path}` || '/';
-    };
+    const buildFullUrl = (path: string) => buildUrl(basePath, path);
 
     const getLangSwitchUrl = () => {
         if (lang === 'en') {
             const newPath = currentPath.replace(/^\/en/, '');
-            return buildUrl(newPath === '' ? '/' : newPath);
+            return buildFullUrl(newPath === '' ? '/' : newPath);
         } else {
-            return buildUrl(currentPath === '/' ? '/en' : `/en${currentPath}`);
+            return buildFullUrl(currentPath === '/' ? '/en' : `/en${currentPath}`);
         }
     };
 
     const navPath = (href: string) => {
         if (lang === 'en') {
-            return buildUrl(href === '/' ? '/en' : `/en${href}`);
+            return buildFullUrl(href === '/' ? '/en' : `/en${href}`);
         }
-        return buildUrl(href);
+        return buildFullUrl(href);
     };
 
     return (
@@ -66,7 +64,7 @@ export default function Navigation({ lang, currentPath, basePath = '/' }: Naviga
                     {/* Logo */}
                     <a href={navPath('/')} className="flex items-center gap-2.5 group">
                         <img
-                            src={buildUrl('/logo.svg')}
+                            src={buildFullUrl('/logo.svg')}
                             alt="BitsecIT Logo"
                             className="w-8 h-8 object-contain transition-transform duration-300 group-hover:scale-105"
                         />
@@ -102,7 +100,7 @@ export default function Navigation({ lang, currentPath, basePath = '/' }: Naviga
                             href={navPath('/contact')}
                             className="bg-gradient-to-r from-[#0057FF] to-[#00C2A8] hover:from-[#0040C0] hover:to-[#009980] text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 shadow-lg shadow-[#0057FF]/30 hover:shadow-[#0057FF]/50 hover:scale-[1.03] active:scale-95"
                         >
-                            {lang === 'en' ? 'Start My Project →' : 'প্রজেক্ট শুরু করি →'}
+                            {t('nav.cta')}
                         </a>
                     </div>
 
@@ -156,7 +154,7 @@ export default function Navigation({ lang, currentPath, basePath = '/' }: Naviga
                                     className="flex items-center gap-2 text-text-primary dark:text-gray-300 font-medium"
                                 >
                                     <Globe size={20} />
-                                    {lang === 'en' ? 'Switch to Bangla' : 'Switch to English'}
+                                    {t('nav.lang.switch')}
                                 </a>
                             </div>
                             {/* Mobile menu CTA */}
@@ -164,7 +162,7 @@ export default function Navigation({ lang, currentPath, basePath = '/' }: Naviga
                                 href={navPath('/contact')}
                                 className="block w-full text-center bg-gradient-to-r from-[#0057FF] to-[#00C2A8] text-white font-bold py-3 px-6 rounded-xl shadow-md hover:opacity-90 active:scale-95 transition-all duration-200"
                             >
-                                {lang === 'en' ? '🚀 Start My Project' : '🚀 প্রজেক্ট শুরু করি'}
+                                🚀 {t('nav.cta')}
                             </a>
                         </div>
                     </motion.div>
