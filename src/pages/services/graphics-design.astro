@@ -11,7 +11,7 @@ const faq = [
   },
   {
     question: lang === 'en' ? 'How many revisions are included?' : 'কতটি রিভিশন অন্তর্ভুক্ত?',
-    answer: lang === 'en' ? 'All packages include unlimited revisions until you are 100% satisfied with the design.' : 'সব প্যাকেজে আনলিমিটেড রিভিশন অন্তর্ভুক্ত — আপনি ১০০% সন্তুষ্ট না হওয়া পর্যন্ত।'
+    answer: lang === 'en' ? 'All packages include unlimited revisions until you are 100% satisfied with the design.' : 'সব প্যাকেজে আনলিমিটেড রিভিশন দেওয়া হয়। আপনি ১০০% সন্তুষ্ট না হওয়া পর্যন্ত আমরা বদলাব।'
   },
   {
     question: lang === 'en' ? 'How long does logo design take?' : 'লোগো ডিজাইনে কত সময় লাগে?',
@@ -19,7 +19,7 @@ const faq = [
   },
   {
     question: lang === 'en' ? 'Do you design for print?' : 'আপনারা কি প্রিন্টের জন্য ডিজাইন করেন?',
-    answer: lang === 'en' ? 'Absolutely! Business cards, brochures, banners, packaging — we handle all print design with CMYK color profiles.' : 'অবশ্যই! বিজনেস কার্ড, ব্রোশার, ব্যানার, প্যাকেজিং — আমরা CMYK রঙ প্রোফাইলসহ সব প্রিন্ট ডিজাইন করি।'
+    answer: lang === 'en' ? 'Absolutely! Business cards, brochures, banners, packaging and more. We handle all print design with proper CMYK color profiles.' : 'অবশ্যই! বিজনেস কার্ড, ব্রোশার, ব্যানার, প্যাকেজিংসহ সব প্রিন্ট ডিজাইন CMYK রঙ প্রোফাইলসহ করা হয়।'
   }
 ];
 ---
@@ -29,7 +29,7 @@ const faq = [
   description={lang === 'en' ? 'Professional logo design, brand identity, and graphics design service in Bangladesh.' : 'বাংলাদেশে পেশাদার লোগো ডিজাইন, ব্র্যান্ড আইডেন্টিটি, এবং গ্রাফিক্স ডিজাইন।'}
   faqSchema={faq}
 >
-  <div class="pt-32 pb-16 bg-gradient-to-b from-surface to-background dark:from-[#161B22] dark:to-background border-b border-border dark:border-border">
+  <div class="pt-32 pb-16 bg-gradient-to-b from-surface to-background dark:from-surface dark:to-background border-b border-border dark:border-border">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10">
       <div class="inline-block bg-primary/10 dark:bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
         {lang === 'en' ? 'Graphics Design' : 'গ্রাফিক্স ডিজাইন'}
@@ -38,7 +38,7 @@ const faq = [
         {lang === 'en' ? 'Designs That Tell Your Story' : 'ডিজাইন যা আপনার গল্প বলে'}
       </h1>
       <p class="text-xl text-text-secondary dark:text-text-secondary mb-8">
-        {lang === 'en' ? 'Logo, brand identity, social media graphics, packaging — all crafted with creativity and intention.' : 'লোগো, ব্র্যান্ড আইডেন্টিটি, সোশ্যাল মিডিয়া গ্রাফিক্স, প্যাকেজিং — সব সৃজনশীলতায় তৈরি।'}
+        {lang === 'en' ? 'Logo, brand identity, social media graphics and packaging. All crafted with creativity and a clear purpose.' : 'লোগো, ব্র্যান্ড আইডেন্টিটি, সোশ্যাল মিডিয়া গ্রাফিক্স ও প্যাকেজিং, সব সৃজনশীলতার সাথে তৈরি।'}
       </p>
       <a href="/contact" class="inline-flex items-center justify-center bg-primary text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-600 transition-colors shadow-lg shadow-primary/30">
         {lang === 'en' ? 'Start Your Design' : 'ডিজাইন শুরু করুন'}
@@ -82,7 +82,7 @@ const faq = [
         {lang === 'en' ? 'What We Design' : 'আমরা যা ডিজাইন করি'}
       </h2>
       <p class="text-center text-text-secondary dark:text-text-secondary mb-14">
-        {lang === 'en' ? 'Show don\'t tell — our results speak for themselves' : 'দেখাই বলার চেয়ে বেশি — ফলাফলই কথা বলে'}
+        {lang === 'en' ? 'Results that speak for themselves' : 'ফলাফলই কথা বলে'}
       </p>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

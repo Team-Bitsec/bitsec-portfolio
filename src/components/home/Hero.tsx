@@ -111,12 +111,12 @@ export default function Hero({ lang = 'bn', title, subtitle, primaryCta, seconda
                     >
                         <span className="flex items-center gap-1.5">
                             <span className="text-yellow-400">★★★★★</span>
-                            <span className="font-medium text-text-primary dark:text-white">25+</span> {trustClients}
+                            <span className="font-medium text-text-primary dark:text-white">8+</span> {trustClients}
                         </span>
                         <span className="hidden sm:block w-px h-4 bg-border dark:bg-[#30363D]"></span>
                         <span className="flex items-center gap-1.5">
                             <span className="text-[#00C2A8]">✓</span>
-                            <span className="font-medium text-text-primary dark:text-white">50+</span> {trustProjects}
+                            <span className="font-medium text-text-primary dark:text-white">10+</span> {trustProjects}
                         </span>
                         <span className="hidden sm:block w-px h-4 bg-border dark:bg-[#30363D]"></span>
                         <span className="flex items-center gap-1.5">

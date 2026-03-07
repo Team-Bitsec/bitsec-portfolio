@@ -5,7 +5,7 @@ const lang = getLangFromUrl(Astro.url);
 ---
 
 <Layout title={lang === 'en' ? 'Contact Us - Bitsec' : 'যোগাযোগ করুন - Bitsec'}>
-	<div class="pt-32 pb-16 bg-gradient-to-b from-surface to-background dark:from-[#161B22] dark:to-background border-b border-border dark:border-border">
+	<div class="pt-32 pb-16 bg-gradient-to-b from-surface to-background dark:from-surface dark:to-background border-b border-border dark:border-border">
 		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10">
 			<h1 class="text-4xl md:text-6xl font-bold text-text-primary dark:text-white mb-6">
 				{lang === 'en' ? 'Contact Us' : 'যোগাযোগ করুন'}
@@ -69,7 +69,7 @@ const lang = getLangFromUrl(Astro.url);
 
             {/* Form */}
             <div class="bg-white dark:bg-surface p-8 md:p-10 rounded-2xl border border-border dark:border-border shadow-md">
-                <form id="contactForm" class="space-y-5">
+                <form id="contactForm" data-lang={lang} class="space-y-5">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         <div>
                             <label for="name" class="block text-sm font-semibold text-text-primary dark:text-gray-200 mb-2">
@@ -153,11 +153,14 @@ const lang = getLangFromUrl(Astro.url);
         const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement;
         const submitText = document.getElementById('submitText') as HTMLSpanElement;
 
+        const lang = form?.dataset.lang ?? 'bn';
+        const isBn = lang === 'bn';
+
         form?.addEventListener('submit', async (e) => {
             e.preventDefault();
             submitBtn.disabled = true;
             submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
-            submitText.textContent = '⏳ Sending...';
+            submitText.textContent = isBn ? '⏳ পাঠানো হচ্ছে...' : '⏳ Sending...';
 
             // Simulate success (replace with EmailJS call when keys are ready)
             await new Promise(resolve => setTimeout(resolve, 1200));
@@ -165,12 +168,15 @@ const lang = getLangFromUrl(Astro.url);
             // Persistent success state — hide form, show success message
             form.classList.add('hidden');
             statusEl.className = 'flex flex-col items-center justify-center gap-4 py-12 text-center';
-            statusEl.innerHTML = `
-              <div class="w-16 h-16 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-3xl shadow-md">✅</div>
-              <h3 class="text-xl font-bold text-text-primary dark:text-white">Message Sent!</h3>
-              <p class="text-text-secondary dark:text-gray-400 max-w-xs">We received your message and will reply within <strong>2 hours</strong>. Check your email inbox.</p>
-              <button onclick="window.location.reload()" class="mt-2 text-sm text-primary hover:underline">Send another message</button>
-            `;
+            statusEl.innerHTML = isBn
+              ? `<div class="w-16 h-16 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-3xl shadow-md">✅</div>
+                 <h3 class="text-xl font-bold text-text-primary dark:text-white">মেসেজ পাঠানো হয়েছে!</h3>
+                 <p class="text-text-secondary dark:text-gray-400 max-w-xs">আমরা আপনার মেসেজ পেয়েছি। <strong>২ ঘণ্টার মধ্যে</strong> রিপ্লাই দেওয়া হবে। আপনার ইমেইল চেক করুন।</p>
+                 <button onclick="window.location.reload()" class="mt-2 text-sm text-primary hover:underline">আরেকটি মেসেজ পাঠান</button>`
+              : `<div class="w-16 h-16 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-3xl shadow-md">✅</div>
+                 <h3 class="text-xl font-bold text-text-primary dark:text-white">Message Sent!</h3>
+                 <p class="text-text-secondary dark:text-gray-400 max-w-xs">We received your message and will reply within <strong>2 hours</strong>. Check your email inbox.</p>
+                 <button onclick="window.location.reload()" class="mt-2 text-sm text-primary hover:underline">Send another message</button>`;
         });
     </script>
 </Layout>

@@ -1,16 +1,52 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { useTranslations } from '../i18n/utils';
-const t = useTranslations('bn');
 ---
-<Layout title={t('terms.title')} description={t('terms.body')}>
-  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-    <h1 class="text-4xl font-extrabold text-text-primary dark:text-white mb-6">{t('terms.title')}</h1>
-    <p class="text-text-secondary dark:text-gray-400 text-lg leading-relaxed mb-6">
-      {t('terms.body')}
-    </p>
-    <p class="text-text-secondary dark:text-gray-400">
-      যোগাযোগ: <a href="mailto:helpline.bitsec@gmail.com" class="text-primary underline">helpline.bitsec@gmail.com</a>
-    </p>
+<Layout title="সেবার শর্তাবলী - Bitsec" description="Bitsec Digital Agency-এর সেবার শর্তাবলী পড়ুন। আমাদের সেবা ব্যবহারের নিয়মকানুন সম্পর্কে জানুন।">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+
+    <h1 class="text-4xl font-extrabold text-text-primary dark:text-white mb-3">সেবার শর্তাবলী</h1>
+    <p class="text-sm text-text-secondary dark:text-gray-400 mb-10">সর্বশেষ আপডেট: মার্চ ২০২৬</p>
+
+    <div class="space-y-10 text-text-secondary dark:text-gray-300 leading-relaxed">
+
+      <section>
+        <h2 class="text-xl font-bold text-text-primary dark:text-white mb-3">১. সেবা গ্রহণের সম্মতি</h2>
+        <p>Bitsec Digital Agency-এর ওয়েবসাইট ব্যবহার করে বা আমাদের সাথে কোনো প্রজেক্টে কাজ শুরু করে আপনি এই শর্তাবলী মেনে নিচ্ছেন বলে ধরা হবে। আপনি যদি এই শর্তের সাথে একমত না হন, তাহলে আমাদের সাথে যোগাযোগ করার আগে দয়া করে তা আমাদের জানান।</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-text-primary dark:text-white mb-3">২. সেবার বিবরণ</h2>
+        <p>আমরা ওয়েব ডেভেলপমেন্ট, মোবাইল অ্যাপ ডেভেলপমেন্ট, গ্রাফিক্স ডিজাইন এবং পেনেট্রেশন টেস্টিং সেবা প্রদান করি। প্রতিটি প্রজেক্টের বিস্তারিত সুযোগ, সময়সীমা এবং মূল্য আলাদা চুক্তিপত্রের মাধ্যমে নির্ধারিত হয়।</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-text-primary dark:text-white mb-3">৩. পেমেন্ট নীতি</h2>
+        <p>প্রজেক্ট শুরুর আগে সম্মত মূল্যের একটি অগ্রিম অংশ পরিশোধ করতে হয়। বাকি অংশ ডেলিভারির সময় বা প্রজেক্ট চুক্তি অনুযায়ী পরিশোধ করতে হবে। নির্ধারিত সময়ে পেমেন্ট না হলে কাজ সাময়িকভাবে বন্ধ রাখার অধিকার Bitsec-এর আছে।</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-text-primary dark:text-white mb-3">৪. রিফান্ড নীতি</h2>
+        <p>কাজ শুরু হওয়ার পর অগ্রিম পেমেন্ট সাধারণত ফেরতযোগ্য নয়। তবে Bitsec-এর পক্ষ থেকে কোনো ত্রুটির কারণে প্রজেক্ট বন্ধ হলে আমরা যুক্তিসঙ্গত অংশ ফেরত দেওয়ার বিষয়টি বিবেচনা করি। প্রতিটি ক্ষেত্রে সিদ্ধান্ত আলোচনার মাধ্যমে নেওয়া হয়।</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-text-primary dark:text-white mb-3">৫. মেধাস্বত্ব</h2>
+        <p>প্রজেক্টের সম্পূর্ণ পেমেন্ট হওয়ার পর ডেলিভারি করা কাজের মেধাস্বত্ব ক্লায়েন্টের কাছে হস্তান্তর হয়। Bitsec তার পোর্টফোলিও এবং মার্কেটিংয়ের উদ্দেশ্যে সম্পন্ন কাজের নমুনা ব্যবহার করার অধিকার রাখে, যদি না ক্লায়েন্ট লিখিতভাবে আপত্তি জানান।</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-text-primary dark:text-white mb-3">৬. দায়বদ্ধতার সীমাবদ্ধতা</h2>
+        <p>Bitsec তার সেবার মাধ্যমে সরাসরি কোনো ক্ষতির জন্য দায়ী। তবে পরোক্ষ ক্ষতি, আয় হারানো বা ব্যবসায়িক সুযোগ হারানোর জন্য আমরা দায়ী নই। আমাদের দায়বদ্ধতা সর্বোচ্চ প্রজেক্টের মোট পেমেন্টের সমান।</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-text-primary dark:text-white mb-3">৭. যোগাযোগ</h2>
+        <p>এই শর্তাবলী সম্পর্কে কোনো প্রশ্ন থাকলে আমাদের সাথে যোগাযোগ করুন:</p>
+        <p class="mt-3">
+          <a href="mailto:helpline.bitsec@gmail.com" class="text-primary underline font-medium">helpline.bitsec@gmail.com</a>
+        </p>
+      </section>
+
+    </div>
   </div>
 </Layout>

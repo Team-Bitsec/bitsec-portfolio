@@ -7,7 +7,7 @@ const lang = getLangFromUrl(Astro.url);
 const faq = [
   {
     question: lang === 'en' ? 'What is penetration testing?' : 'পেনেট্রেশন টেস্টিং কী?',
-    answer: lang === 'en' ? 'Penetration testing is a simulated cyber attack on your system — performed by ethical hackers — to find security vulnerabilities before real attackers do.' : 'পেনেট্রেশন টেস্টিং হলো এথিক্যাল হ্যাকারদের দ্বারা আপনার সিস্টেমে সিমুলেটেড সাইবার আক্রমণ — যা আসল আক্রমণকারীর আগেই দুর্বলতা খুঁজে বের করে।'
+    answer: lang === 'en' ? 'Penetration testing is a simulated cyber attack on your system, performed by ethical hackers, to find security vulnerabilities before real attackers do.' : 'পেনেট্রেশন টেস্টিং হলো এথিক্যাল হ্যাকারদের দিয়ে আপনার সিস্টেমে সিমুলেটেড সাইবার আক্রমণ, যাতে আসল আক্রমণকারীর আগেই দুর্বলতা খুঁজে বের করা যায়।'
   },
   {
     question: lang === 'en' ? 'What types of pentest do you offer?' : 'আপনারা কোন ধরনের পেনটেস্ট অফার করেন?',
@@ -23,7 +23,7 @@ const faq = [
   },
   {
     question: lang === 'en' ? 'Who needs penetration testing?' : 'কাদের পেনেট্রেশন টেস্টিং দরকার?',
-    answer: lang === 'en' ? 'Any business with online presence — especially fintech, e-commerce, healthcare, and government agencies — should test their systems annually or after major updates.' : 'যেকোনো অনলাইন ব্যবসা — বিশেষত ফিনটেক, ই-কমার্স, স্বাস্থ্যসেবা, সরকারি প্রতিষ্ঠান — বার্ষিক বা বড় আপডেটের পরে তাদের সিস্টেম পরীক্ষা করা উচিত।'
+    answer: lang === 'en' ? 'Any business with an online presence should test their systems regularly, especially fintech, e-commerce, healthcare, and government agencies. We recommend testing annually or after any major update.' : 'যেকোনো অনলাইন ব্যবসার তাদের সিস্টেম নিয়মিত পরীক্ষা করা উচিত। বিশেষত ফিনটেক, ই-কমার্স, স্বাস্থ্যসেবা ও সরকারি প্রতিষ্ঠানের জন্য এটি বেশি জরুরি। বার্ষিক বা বড় কোনো আপডেটের পর টেস্ট করানো দরকার।'
   }
 ];
 ---
@@ -43,8 +43,8 @@ const faq = [
       </h1>
       <p class="text-xl text-gray-200 mb-8">
         {lang === 'en'
-          ? 'Before attackers find your vulnerabilities — our ethical hackers simulate real attacks to protect your business.'
-          : 'আক্রমণকারীরা দুর্বলতা খুঁজে পাওয়ার আগেই — আমাদের এথিক্যাল হ্যাকাররা বাস্তব আক্রমণ সিমুলেট করে আপনার ব্যবসা রক্ষা করে।'}
+          ? 'Before attackers find your vulnerabilities, our ethical hackers simulate real attacks to protect your business.'
+          : 'আক্রমণকারীরা দুর্বলতা খুঁজে পাওয়ার আগেই আমাদের এথিক্যাল হ্যাকাররা বাস্তব আক্রমণ সিমুলেট করে আপনার ব্যবসা রক্ষা করে।'}}
       </p>
       <a href="/contact" class="inline-flex items-center justify-center bg-warning text-white px-8 py-4 rounded-xl font-bold hover:bg-[#eab308]/90 transition-colors shadow-lg shadow-warning/30">
         {lang === 'en' ? '🛡️ Request Security Audit' : '🛡️ সিকিউরিটি অডিট রিকোয়েস্ট করুন'}

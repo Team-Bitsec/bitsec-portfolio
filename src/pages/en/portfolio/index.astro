@@ -22,7 +22,7 @@ const sortedPortfolio = projects;
 ---
 
 <Layout title="Our Portfolio - Bitsec">
-	<div class="pt-32 pb-16 bg-gradient-to-b from-surface to-background dark:from-[#161B22] dark:to-background border-b border-border dark:border-border">
+	<div class="pt-32 pb-16 bg-gradient-to-b from-surface to-background dark:from-surface dark:to-background border-b border-border dark:border-border">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10">
 			<h1 class="text-4xl md:text-6xl font-bold text-text-primary dark:text-white mb-6">Our Success Stories</h1>
 			<p class="text-xl text-text-secondary dark:text-text-secondary max-w-3xl mx-auto">
@@ -34,7 +34,7 @@ const sortedPortfolio = projects;
 	<section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 			{sortedPortfolio.map(project => (
-				<a href={`/en/portfolio/${project.id}`} class="group flex flex-col relative overflow-hidden rounded-[2rem] bg-white dark:bg-[#121212] transition-all duration-500 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(0,87,255,0.15)] dark:shadow-none dark:hover:shadow-[0_8px_30px_-4px_rgba(0,87,255,0.15)] border border-gray-100 dark:border-white/5">
+				<a href={`/en/portfolio/${project.id}`} class="group flex flex-col relative overflow-hidden rounded-[2rem] bg-white dark:bg-surface-2 transition-all duration-500 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(0,87,255,0.15)] dark:shadow-none dark:hover:shadow-[0_8px_30px_-4px_rgba(0,87,255,0.15)] border border-gray-100 dark:border-white/5">
 					{/* Image Container */}
 					<div class="relative aspect-[4/3] w-full overflow-hidden bg-gray-100 dark:bg-zinc-800">
 						<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20 mix-blend-multiply dark:mix-blend-color-burn"></div>
@@ -74,7 +74,7 @@ const sortedPortfolio = projects;
 					</div>
 
 					{/* Content Section */}
-					<div class="p-6 md:p-8 flex-grow flex flex-col justify-between relative bg-white dark:bg-[#121212] z-20 border-t border-gray-50 dark:border-white/5">
+					<div class="p-6 md:p-8 flex-grow flex flex-col justify-between relative bg-white dark:bg-surface-2 z-20 border-t border-gray-50 dark:border-white/5">
 						<div>
 							<h3 class="text-xl md:text-2xl font-bold text-text-primary dark:text-white mb-3 group-hover:text-primary transition-colors duration-300 line-clamp-1">
 								{project.title}

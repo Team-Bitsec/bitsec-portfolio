@@ -16,10 +16,10 @@ const translatePath = useTranslatedPath(lang);
       <div class="text-center lg:text-left">
         <div class="inline-flex flex-col items-center lg:items-start gap-2 mb-6">
           <div class="inline-block bg-white/20 text-white px-4 py-1.5 rounded-full text-sm font-semibold backdrop-blur-sm">
-            🎁 {lang === 'en' ? '100% Free — No Commitment' : '১০০% বিনামূল্যে — কোনো বাধ্যবাধকতা নেই'}
+            🎁 {lang === 'en' ? '100% Free, No Commitment' : '১০০% বিনামূল্যে, কোনো বাধ্যবাধকতা নেই'}
           </div>
           <div class="text-white/70 text-sm font-medium">
-            ✦ {lang === 'en' ? 'Limited slots available — book early' : 'সীমিত সুযোগ — আগে বুক করুন'}
+            {lang === 'en' ? 'Limited slots available, book early' : 'সীমিত সুযোগ, তাডাতাডি বুক করুন'}
           </div>
         </div>
         
@@ -92,10 +92,6 @@ const translatePath = useTranslatedPath(lang);
               <stop offset="0%" stop-color="white" stop-opacity="0.1"/>
               <stop offset="100%" stop-color="white" stop-opacity="0"/>
             </linearGradient>
-            <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="15" result="blur" />
-              <feComposite in="SourceGraphic" in2="blur" operator="over" />
-            </filter>
           </defs>
           
           <!-- Background geometric shapes -->
@@ -133,7 +129,7 @@ const translatePath = useTranslatedPath(lang);
           <!-- Floating Notifications -->
           <!-- Top Left Notification -->
           <g class="fc-svg-float-alt" style="transform-origin: 150px 100px;">
-            <rect x="60" y="80" width="120" height="40" rx="10" fill="#ffffff" filter="url(#glow)" />
+            <rect x="60" y="80" width="120" height="40" rx="10" fill="#ffffff" />
             <circle cx="85" cy="100" r="8" fill="#10b981" />
             <rect x="105" y="95" width="50" height="6" rx="3" fill="#cbd5e1" />
             <rect x="105" y="105" width="30" height="4" rx="2" fill="#e2e8f0" />
@@ -141,7 +137,7 @@ const translatePath = useTranslatedPath(lang);
           
           <!-- Bottom Right Badge -->
           <g class="fc-svg-float-rev" style="transform-origin: 380px 380px;">
-            <circle cx="380" cy="380" r="45" fill="url(#illustrationGrad)" filter="url(#glow)" />
+            <circle cx="380" cy="380" r="45" fill="url(#illustrationGrad)" />
             <path d="M 365 380 l 10 10 l 20 -20" stroke="#ffffff" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
           </g>
           

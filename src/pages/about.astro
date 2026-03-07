@@ -8,15 +8,15 @@ const lang = getLangFromUrl(Astro.url);
 ---
 
 <Layout title={lang === 'en' ? 'About Us - Bitsec Digital Agency' : 'আমাদের সম্পর্কে - Bitsec Digital Agency'}>
-  <div class="pt-32 pb-16 bg-gradient-to-b from-surface to-background dark:from-[#161B22] dark:to-background border-b border-border dark:border-border">
+  <div class="pt-32 pb-16 bg-gradient-to-b from-surface to-background dark:from-surface dark:to-background border-b border-border dark:border-border">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10">
       <h1 class="text-4xl md:text-6xl font-bold text-text-primary dark:text-white mb-6">
         {lang === 'en' ? 'About Bitsec' : 'Bitsec সম্পর্কে'}
       </h1>
       <p class="text-xl text-text-secondary dark:text-text-secondary">
         {lang === 'en'
-          ? 'Bangladesh\'s leading digital service agency — blending creativity, security, and technology.'
-          : 'বাংলাদেশের অন্যতম সেরা ডিজিটাল সার্ভিস এজেন্সি — সৃজনশীলতা, নিরাপত্তা ও প্রযুক্তির সমন্বয়।'}
+          ? 'Bangladesh\'s leading digital service agency, blending creativity, security, and technology.'
+          : 'বাংলাদেশের অন্যতম সেরা ডিজিটাল সার্ভিস এজেন্সি। সৃজনশীলতা, নিরাপত্তা ও প্রযুক্তির সমন্বয়ে আমরা কাজ করি।'}
       </p>
     </div>
   </div>
@@ -30,26 +30,26 @@ const lang = getLangFromUrl(Astro.url);
         </h2>
         <p class="text-text-secondary dark:text-gray-300 leading-relaxed mb-4">
           {lang === 'en'
-            ? 'Bitsec was born in 2021 from a simple belief: Bangladeshi businesses deserve world-class digital services without paying international prices. Our founders — developers and cybersecurity researchers — saw a gap in the market.'
-            : '২০২১ সালে Bitsec-এর জন্ম একটি সহজ বিশ্বাস থেকে: বাংলাদেশের ব্যবসায়িক প্রতিষ্ঠানগুলো আন্তর্জাতিক মানের ডিজিটাল সেবা পাওয়ার যোগ্য, আন্তর্জাতিক মূল্য না দিয়েও। আমাদের প্রতিষ্ঠাতারা — ডেভেলপার ও সাইবারসিকিউরিটি গবেষকরা — বাজারে এই শূন্যতা দেখেছিলেন।'}
+            ? 'Bitsec was born in 2021 from a simple belief: Bangladeshi businesses deserve world-class digital services without paying international prices. Our founders, who are developers and cybersecurity researchers, saw this gap in the market and decided to fill it.'
+            : '২০২১ সালে Bitsec-এর জন্ম একটি সহজ বিশ্বাস থেকে। বাংলাদেশের ব্যবসায়িক প্রতিষ্ঠানগুলো আন্তর্জাতিক মানের ডিজিটাল সেবা পাওয়ার যোগ্য, আন্তর্জাতিক মূল্য না দিয়েও। আমাদের প্রতিষ্ঠাতারা, যারা ডেভেলপার ও সাইবারসিকিউরিটি গবেষক, বাজারে এই শূন্যতা দেখে এগিয়ে এসেছিলেন।'}
         </p>
         <p class="text-text-secondary dark:text-gray-300 leading-relaxed mb-4">
           {lang === 'en'
-            ? 'What started as a two-person freelancing team quickly grew to a full-service agency offering Web Development, Mobile Apps, Graphics Design, and the rarest service in Bangladesh — professional Penetration Testing.'
-            : 'দুজনের ফ্রিল্যান্সিং টিম থেকে দ্রুত পূর্ণাঙ্গ এজেন্সিতে পরিণত হয়েছি — ওয়েব ডেভেলপমেন্ট, মোবাইল অ্যাপ, গ্রাফিক্স ডিজাইন, এবং বাংলাদেশে সবচেয়ে বিরল সার্ভিস — পেশাদার পেনেট্রেশন টেস্টিং।'}
+            ? 'What started as a two-person freelancing team quickly grew into a full-service agency. Today we offer Web Development, Mobile Apps, Graphics Design, and professional Penetration Testing, which is still a rare service in Bangladesh.'
+            : 'দুজনের ফ্রিল্যান্সিং টিম থেকে শুরু করে দ্রুত পূর্ণাঙ্গ এজেন্সিতে পরিণত হয়েছি। এখন আমরা দিচ্ছি ওয়েব ডেভেলপমেন্ট, মোবাইল অ্যাপ, গ্রাফিক্স ডিজাইন এবং পেশাদার পেনেট্রেশন টেস্টিং, যা বাংলাদেশে এখনো একটি বিরল সার্ভিস।'}
         </p>
         <p class="text-text-secondary dark:text-gray-300 leading-relaxed">
           {lang === 'en'
-            ? 'Today, we\'ve delivered 50+ projects for clients across Bangladesh and 5+ countries.'
-            : 'আজ আমরা বাংলাদেশ ও ৫+ দেশের ক্লায়েন্টদের জন্য ৫০+ প্রজেক্ট ডেলিভারি দিয়েছি।'}
+            ? 'Today, we\'ve delivered 10+ projects for clients across Bangladesh.'
+            : 'আজ আমরা বাংলাদেশের ক্লায়েন্টদের জন্য ১০+ প্রজেক্ট ডেলিভারি দিয়েছি।'}
         </p>
       </div>
       <div class="grid grid-cols-2 gap-4">
         {[
-          { value: '50+', label: lang === 'en' ? 'Projects' : 'প্রজেক্ট' },
-          { value: '25+', label: lang === 'en' ? 'Happy Clients' : 'সন্তুষ্ট ক্লায়েন্ট' },
+          { value: '10+', label: lang === 'en' ? 'Projects' : 'প্রজেক্ট' },
+          { value: '8+', label: lang === 'en' ? 'Happy Clients' : 'সন্তুষ্ট ক্লায়েন্ট' },
           { value: '4+', label: lang === 'en' ? 'Years' : 'বছর' },
-          { value: '5+', label: lang === 'en' ? 'Countries' : 'দেশ' },
+          { value: '1', label: lang === 'en' ? 'Country' : 'দেশ' },
         ].map(stat => (
           <div class="bg-surface dark:bg-surface p-6 rounded-2xl border border-border dark:border-border text-center">
             <div class="text-3xl font-extrabold text-primary mb-1">{stat.value}</div>
@@ -85,15 +85,15 @@ const lang = getLangFromUrl(Astro.url);
           {
             iconPath: 'M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0M12 9v4m0 4h.01',
             en: 'Bilingual Support', bn: 'দ্বিভাষিক সাপোর্ট',
-            enSub: 'We speak your language — Bengali & English.',
-            bnSub: 'আমরা আপনার ভাষায় কথা বলি — বাংলা ও ইংরেজি।',
+            enSub: 'We speak your language, Bengali and English both.',
+            bnSub: 'আমরা আপনার ভাষায় কথা বলি, বাংলা ও ইংরেজি উভয়তেই।',
             cls: 'text-teal-600 bg-teal-100 dark:bg-teal-900/30 dark:text-teal-300'
           },
           {
             iconPath: 'M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z',
             en: '24/7 Support', bn: '২৪/৭ সাপোর্ট',
-            enSub: "We're always here — even after project handover.",
-            bnSub: 'আমরা সবসময় আছি — প্রজেক্ট হ্যান্ডওভারের পরেও।',
+            enSub: "We're always here, even after the project is handed over.",
+            bnSub: 'আমরা সবসময় থাকি, প্রজেক্ট হ্যান্ডওভারের পরেও।',
             cls: 'text-purple-600 bg-purple-100 dark:bg-purple-900/30 dark:text-purple-300'
           },
         ].map(item => (

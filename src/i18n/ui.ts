@@ -57,7 +57,7 @@ export const ui = {
         'portfolio.filter.security': 'সিকিউরিটি',
 
         // ── Footer ──
-        'footer.tagline': 'ছোট ব্যবসা থেকে বড় এন্টারপ্রাইজ — সবার জন্য ডিজিটাল সমাধান নিয়ে আমরা কাজ করি।',
+        'footer.tagline': 'ছোট ব্যবসা থেকে বড় এন্টারপ্রাইজ, সবার জন্য ডিজিটাল সমাধান নিয়ে আমরা কাজ করি।',
         'footer.services': 'সার্ভিসসমূহ',
         'footer.company': 'কোম্পানি',
         'footer.connect': 'যোগাযোগ',

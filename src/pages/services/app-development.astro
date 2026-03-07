@@ -7,7 +7,7 @@ const lang = getLangFromUrl(Astro.url);
 const faq = [
   {
     question: lang === 'en' ? 'Do you build for iOS and Android?' : 'আপনারা iOS এবং Android উভয়ের জন্য কি অ্যাপ বানান?',
-    answer: lang === 'en' ? 'Yes! We build cross-platform apps using React Native and Flutter, so one codebase works on both iOS and Android.' : 'হ্যাঁ! আমরা React Native ও Flutter দিয়ে ক্রস-প্ল্যাটফর্ম অ্যাপ তৈরি করি — একটি কোডবেস iOS ও Android উভয়েই কাজ করে।'
+    answer: lang === 'en' ? 'Yes! We build cross-platform apps using React Native and Flutter, so one codebase works on both iOS and Android.' : 'হ্যাঁ! আমরা React Native ও Flutter দিয়ে ক্রস-প্ল্যাটফর্ম অ্যাপ তৈরি করি, যাতে একটি কোডবেস iOS ও Android উভয়েই কাজ করে।'
   },
   {
     question: lang === 'en' ? 'How long does app development take?' : 'অ্যাপ ডেভেলপমেন্টে কত সময় লাগে?',
@@ -15,11 +15,11 @@ const faq = [
   },
   {
     question: lang === 'en' ? 'Do you publish the app to App Store and Play Store?' : 'আপনারা কি App Store ও Play Store-এ পাবলিশ করেন?',
-    answer: lang === 'en' ? 'Yes, we handle the entire publishing process — account setup, app submission, and approval process guidance.' : 'হ্যাঁ, আমরা পুরো পাবলিশিং প্রক্রিয়া পরিচালনা করি — অ্যাকাউন্ট সেটআপ, অ্যাপ সাবমিশন, এবং অ্যাপ্রুভাল।'
+    answer: lang === 'en' ? 'Yes, we handle the entire publishing process including account setup, app submission, and approval guidance.' : 'হ্যাঁ, আমরা পুরো পাবলিশিং প্রক্রিয়া পরিচালনা করি। অ্যাকাউন্ট সেটআপ, অ্যাপ সাবমিশন ও অ্যাপ্রুভাল পবর্যন্ত সব।'
   },
   {
     question: lang === 'en' ? 'What about after launch support?' : 'লঞ্চের পর কি সাপোর্ট পাওয়া যাবে?',
-    answer: lang === 'en' ? 'We provide post-launch support packages including bug fixes, OS updates compatibility, and feature additions.' : 'আমরা লঞ্চ-পরবর্তী সাপোর্ট প্যাকেজ দিই — বাগ ফিক্স, OS আপডেট সামঞ্জস্য এবং নতুন ফিচার যোগ।'
+    answer: lang === 'en' ? 'We provide post-launch support packages including bug fixes, OS update compatibility, and feature additions.' : 'আমরা লন্চ-পরবর্তী সাপোর্ট প্যাকেজ দিই, যাতে বাগ ফিক্স, OS আপডেট সামঙ্জস্যতা ও নতুন ফিচার যোগ অন্তর্ভুক্ত।'
   }
 ];
 ---
@@ -29,7 +29,7 @@ const faq = [
   description={lang === 'en' ? 'Mobile app development company in Bangladesh. iOS & Android apps with React Native and Flutter.' : 'বাংলাদেশে মোবাইল অ্যাপ ডেভেলপমেন্ট। React Native ও Flutter দিয়ে iOS ও Android অ্যাপ।'}
   faqSchema={faq}
 >
-  <div class="pt-32 pb-16 bg-gradient-to-b from-surface to-background dark:from-[#161B22] dark:to-background border-b border-border dark:border-border">
+  <div class="pt-32 pb-16 bg-gradient-to-b from-surface to-background dark:from-surface dark:to-background border-b border-border dark:border-border">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-10">
       <div class="inline-block bg-primary/10 dark:bg-primary/20 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
         {lang === 'en' ? 'App Development' : 'অ্যাপ ডেভেলপমেন্ট'}

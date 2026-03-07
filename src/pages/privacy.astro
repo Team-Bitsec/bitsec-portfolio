@@ -1,16 +1,52 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { useTranslations } from '../i18n/utils';
-const t = useTranslations('bn');
 ---
-<Layout title={t('privacy.title')} description={t('privacy.body')}>
-  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-    <h1 class="text-4xl font-extrabold text-text-primary dark:text-white mb-6">{t('privacy.title')}</h1>
-    <p class="text-text-secondary dark:text-gray-400 text-lg leading-relaxed mb-6">
-      {t('privacy.body')}
-    </p>
-    <p class="text-text-secondary dark:text-gray-400">
-      যোগাযোগ: <a href="mailto:helpline.bitsec@gmail.com" class="text-primary underline">helpline.bitsec@gmail.com</a>
-    </p>
+<Layout title="গোপনীয়তা নীতি - Bitsec" description="Bitsec Digital Agency-এর গোপনীয়তা নীতি পড়ুন। আমরা আপনার তথ্য কীভাবে সংগ্রহ, ব্যবহার এবং সুরক্ষিত রাখি তা জানুন।">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+
+    <h1 class="text-4xl font-extrabold text-text-primary dark:text-white mb-3">গোপনীয়তা নীতি</h1>
+    <p class="text-sm text-text-secondary dark:text-gray-400 mb-10">সর্বশেষ আপডেট: মার্চ ২০২৬</p>
+
+    <div class="space-y-10 text-text-secondary dark:text-gray-300 leading-relaxed">
+
+      <section>
+        <h2 class="text-xl font-bold text-text-primary dark:text-white mb-3">১. আমরা কী তথ্য সংগ্রহ করি</h2>
+        <p>আপনি যখন আমাদের ওয়েবসাইটে যোগাযোগ ফর্ম পূরণ করেন, তখন আমরা আপনার নাম, ইমেইল ঠিকানা, ফোন নম্বর এবং আপনার বার্তা সংগ্রহ করি। এছাড়া সাইট পরিদর্শনের সময় ব্রাউজার ধরন ও কান্ট্রি কোডের মতো সাধারণ বিশ্লেষণ তথ্য স্বয়ংক্রিয়ভাবে সংগৃহীত হতে পারে।</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-text-primary dark:text-white mb-3">২. তথ্য কীভাবে ব্যবহার করা হয়</h2>
+        <p>সংগৃহীত তথ্য শুধুমাত্র আপনার সাথে যোগাযোগ করতে এবং আপনার চাহিদা অনুযায়ী সার্ভিস প্রদান করতে ব্যবহার করা হয়। আমরা কখনো আপনার ব্যক্তিগত তথ্য কোনো তৃতীয় পক্ষের কাছে বিক্রি করি না বা ভাড়া দিই না।</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-text-primary dark:text-white mb-3">৩. তথ্য সুরক্ষা</h2>
+        <p>আপনার তথ্য সুরক্ষিত রাখতে আমরা সর্বোচ্চ সতর্কতা অবলম্বন করি। আমাদের সিস্টেম নিয়মিত নিরাপত্তা পরীক্ষার মধ্য দিয়ে যায়। তবে ইন্টারনেটে কোনো পদ্ধতিই শতভাগ নিরাপদ নয়, তাই আমরা সম্পূর্ণ নিরাপত্তার নিশ্চয়তা দিতে পারি না।</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-text-primary dark:text-white mb-3">৪. কুকিজ</h2>
+        <p>আমাদের ওয়েবসাইট সাইটের কার্যকারিতা উন্নত করতে প্রয়োজনীয় কুকিজ ব্যবহার করতে পারে। আপনি আপনার ব্রাউজার সেটিংস থেকে যেকোনো সময় কুকিজ বন্ধ করতে পারবেন, তবে এতে সাইটের কিছু ফিচার ঠিকমতো কাজ না-ও করতে পারে।</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-text-primary dark:text-white mb-3">৫. তৃতীয় পক্ষের সেবা</h2>
+        <p>আমরা Google Analytics-এর মতো তৃতীয় পক্ষের বিশ্লেষণ সরঞ্জাম ব্যবহার করতে পারি যা সাইটের ব্যবহারের ধরন পর্যবেক্ষণ করে। এই সরঞ্জামগুলো তাদের নিজস্ব গোপনীয়তা নীতি মেনে চলে।</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-text-primary dark:text-white mb-3">৬. আপনার অধিকার</h2>
+        <p>আপনি যেকোনো সময় আমাদের কাছে থাকা আপনার তথ্য দেখতে, সংশোধন করতে বা মুছে দিতে অনুরোধ করতে পারেন। এই বিষয়ে যোগাযোগ করুন:</p>
+        <p class="mt-3">
+          <a href="mailto:helpline.bitsec@gmail.com" class="text-primary underline font-medium">helpline.bitsec@gmail.com</a>
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-text-primary dark:text-white mb-3">৭. নীতির পরিবর্তন</h2>
+        <p>প্রয়োজনে এই গোপনীয়তা নীতি আপডেট করা হতে পারে। পরিবর্তন হলে এই পেজে নতুন তারিখ সহ জানানো হবে। সাইট ব্যবহার অব্যাহত রাখলে আপনি হালনাগাদ নীতি মেনে নিয়েছেন বলে ধরা হবে।</p>
+      </section>
+
+    </div>
   </div>
 </Layout>

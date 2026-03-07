@@ -1,16 +1,52 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { useTranslations } from '../../i18n/utils';
-const t = useTranslations('en');
 ---
-<Layout title={t('terms.title')} description={t('terms.body')}>
-  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-    <h1 class="text-4xl font-extrabold text-text-primary dark:text-white mb-6">{t('terms.title')}</h1>
-    <p class="text-text-secondary dark:text-gray-400 text-lg leading-relaxed mb-6">
-      {t('terms.body')}
-    </p>
-    <p class="text-text-secondary dark:text-gray-400">
-      Contact: <a href="mailto:helpline.bitsec@gmail.com" class="text-primary underline">helpline.bitsec@gmail.com</a>
-    </p>
+<Layout title="Terms of Service - Bitsec" description="Read Bitsec Digital Agency's terms of service. Understand the rules and conditions for using our services.">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+
+    <h1 class="text-4xl font-extrabold text-text-primary dark:text-white mb-3">Terms of Service</h1>
+    <p class="text-sm text-text-secondary dark:text-gray-400 mb-10">Last updated: March 2026</p>
+
+    <div class="space-y-10 text-text-secondary dark:text-gray-300 leading-relaxed">
+
+      <section>
+        <h2 class="text-xl font-bold text-text-primary dark:text-white mb-3">1. Acceptance of Terms</h2>
+        <p>By using the Bitsec Digital Agency website or starting a project with us, you agree to these terms. If you have any concerns about anything outlined here, please reach out to us before proceeding.</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-text-primary dark:text-white mb-3">2. Our Services</h2>
+        <p>We provide web development, mobile app development, graphics design, and penetration testing services. The exact scope, timeline, and pricing of each project are defined through a separate agreement before work begins.</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-text-primary dark:text-white mb-3">3. Payment Policy</h2>
+        <p>An advance payment is required before a project starts. The remaining balance is due upon delivery or as outlined in the project agreement. Bitsec reserves the right to pause work if payment is not received by the agreed date.</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-text-primary dark:text-white mb-3">4. Refund Policy</h2>
+        <p>Advance payments are generally non-refundable once work has begun. However, if a project is stopped due to an issue on our end, we will review the situation and consider a reasonable partial refund. Each case is handled through direct discussion.</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-text-primary dark:text-white mb-3">5. Intellectual Property</h2>
+        <p>Once full payment is received, ownership of the delivered work transfers to the client. Bitsec retains the right to display completed work in our portfolio and marketing materials unless the client specifically requests otherwise in writing.</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-text-primary dark:text-white mb-3">6. Limitation of Liability</h2>
+        <p>Bitsec is responsible for direct issues caused by our services. We are not liable for indirect losses, lost revenue, or missed business opportunities. Our total liability in any case will not exceed the total amount paid for the project.</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold text-text-primary dark:text-white mb-3">7. Contact</h2>
+        <p>If you have any questions about these terms, feel free to contact us:</p>
+        <p class="mt-3">
+          <a href="mailto:helpline.bitsec@gmail.com" class="text-primary underline font-medium">helpline.bitsec@gmail.com</a>
+        </p>
+      </section>
+
+    </div>
   </div>
 </Layout>
