@@ -80,13 +80,13 @@ export default function TestimonialsCarousel({ lang }: TestimonialsCarouselProps
     const t = testimonials[current];
 
     return (
-        <section className="py-24 bg-surface dark:bg-[#1C2128] border-y border-border dark:border-[#30363D]">
+        <section className="py-24 bg-white border-y border-[#DDE5F0]">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-5xl font-bold text-text-primary dark:text-white mb-4">
+                    <h2 className="text-3xl md:text-5xl font-bold text-[#0D1B2A] mb-4">
                         {lang === 'en' ? 'What Clients Say' : 'ক্লায়েন্টরা কী বলছেন'}
                     </h2>
-                    <p className="text-text-secondary dark:text-gray-400">
+                    <p className="text-[#5A6A7E]">
                         {lang === 'en' ? 'Real results for real businesses' : 'বাস্তব ব্যবসার বাস্তব ফলাফল'}
                     </p>
                 </div>
@@ -103,7 +103,7 @@ export default function TestimonialsCarousel({ lang }: TestimonialsCarouselProps
                             transition={{ duration: 0.4, ease: 'easeInOut' }}
                             className="w-full"
                         >
-                            <div className="bg-white dark:bg-[#161B22] rounded-2xl border border-border dark:border-[#30363D] shadow-sm p-8 md:p-12">
+                            <div className="bg-[#EEF3FF] rounded-2xl border border-[#C5D6FF] shadow-sm p-8 md:p-12">
                                 {/* Stars */}
                                 <div className="flex gap-1 mb-6">
                                     {Array.from({ length: t.stars }).map((_, i) => (
@@ -111,7 +111,7 @@ export default function TestimonialsCarousel({ lang }: TestimonialsCarouselProps
                                     ))}
                                 </div>
 
-                                <p className="text-lg md:text-xl text-text-primary dark:text-gray-200 font-medium italic mb-8 leading-relaxed">
+                                <p className="text-lg md:text-xl text-[#0D1B2A] font-medium italic mb-8 leading-relaxed">
                                     {lang === 'en' ? t.quote : t.quoteBN}
                                 </p>
 
@@ -120,8 +120,8 @@ export default function TestimonialsCarousel({ lang }: TestimonialsCarouselProps
                                         {t.initials}
                                     </div>
                                     <div>
-                                        <div className="font-bold text-text-primary dark:text-white">{t.author}</div>
-                                        <div className="text-sm text-text-secondary dark:text-gray-400">{t.role}</div>
+                                        <div className="font-bold text-[#0D1B2A]">{t.author}</div>
+                                        <div className="text-sm text-[#5A6A7E]">{t.role}</div>
                                     </div>
                                 </div>
                             </div>
@@ -133,7 +133,7 @@ export default function TestimonialsCarousel({ lang }: TestimonialsCarouselProps
                 <div className="flex items-center justify-center gap-4 mt-8">
                     <button
                         onClick={() => goTo((current - 1 + testimonials.length) % testimonials.length, -1)}
-                        className="w-10 h-10 rounded-full border border-border dark:border-[#30363D] flex items-center justify-center text-text-secondary hover:text-primary hover:border-primary transition-colors"
+                        className="w-10 h-10 rounded-full border border-[#C5D6FF] flex items-center justify-center text-[#5A6A7E] hover:text-[#0057FF] hover:border-[#0057FF] transition-colors"
                         aria-label="Previous"
                     >
                         ←
@@ -144,23 +144,23 @@ export default function TestimonialsCarousel({ lang }: TestimonialsCarouselProps
                                 <button
                                     key={i}
                                     onClick={() => goTo(i, i > current ? 1 : -1)}
-                                    className={`rounded-full transition-all duration-300 ${i === current ? 'w-6 h-3 bg-primary' : 'w-3 h-3 bg-border dark:bg-[#30363D] hover:bg-primary/50'}`}
+                                    className={`rounded-full transition-all duration-300 ${i === current ? 'w-6 h-3 bg-[#0057FF]' : 'w-3 h-3 bg-[#C5D6FF] hover:bg-[#0057FF]/50'}`}
                                     aria-label={`Go to ${i + 1}`}
                                 />
                             ))}
                         </div>
                         {/* Auto-progress bar */}
-                        <div className="w-24 h-0.5 bg-border dark:bg-[#30363D] rounded-full overflow-hidden">
+                        <div className="w-24 h-0.5 bg-[#C5D6FF] rounded-full overflow-hidden">
                             <div
                                 key={current}
-                                className="h-full bg-primary rounded-full"
+                                className="h-full bg-[#0057FF] rounded-full"
                                 style={{ animation: 'progressBar 5s linear forwards' }}
                             />
                         </div>
                     </div>
                     <button
                         onClick={() => goTo((current + 1) % testimonials.length, 1)}
-                        className="w-10 h-10 rounded-full border border-border dark:border-[#30363D] flex items-center justify-center text-text-secondary hover:text-primary hover:border-primary transition-colors"
+                        className="w-10 h-10 rounded-full border border-[#C5D6FF] flex items-center justify-center text-[#5A6A7E] hover:text-[#0057FF] hover:border-[#0057FF] transition-colors"
                         aria-label="Next"
                     >
                         →

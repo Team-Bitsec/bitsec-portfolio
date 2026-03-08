@@ -15,7 +15,7 @@ interface Props {
 const { 
     title = "Bitsec - Digital Service Agency",
     description = "Top Digital Agency in Bangladesh. We build ultra-fast websites, mobile apps, and highly secure digital solutions for ambitious brands.",
-    image = "/og-image.jpg",
+    image = "/og-image.png",
     faqSchema = []
 } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
@@ -27,7 +27,7 @@ if (basePath !== '/' && currentPath.startsWith(basePath)) {
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || Astro.url);
-const siteOrigin = Astro.site ? Astro.site.toString().replace(/\/$/, '') : 'https://bitsec.agency';
+const siteOrigin = Astro.site ? Astro.site.toString().replace(/\/$/, '') : 'https://team-bitsec.github.io';
 
 const getFullUrl = (path: string) => {
     const b = basePath.endsWith('/') ? basePath.slice(0, -1) : basePath;
@@ -122,23 +122,9 @@ const faqJsonLd = faqSchema.length > 0 ? {
 		{faqJsonLd && <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />}
 
 		<script is:inline define:vars={{ basePath }}>
-			// Theme preference
-			const theme = (() => {
-				if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-					return localStorage.getItem('theme');
-				}
-				if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-					return 'dark';
-				}
-				return 'light';
-			})();
-		
-			if (theme === 'light') {
-				document.documentElement.classList.remove('dark');
-			} else {
-				document.documentElement.classList.add('dark');
-			}
-			window.localStorage.setItem('theme', theme);
+			// Theme preference — Fixed to Light Mode
+			document.documentElement.classList.remove('dark');
+			window.localStorage.setItem('theme', 'light');
 
 			// Language preference — default: English ('en')
 			(function() {

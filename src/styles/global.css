@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* ── Force dark mode to only apply via .dark class, NOT OS preference ── */
+@variant dark (&:where(.dark, .dark *));
+
 @theme {
   /* ── Royal Blue Scale ── */
   --color-blue-50: #EEF3FF;

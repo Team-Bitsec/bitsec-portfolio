@@ -4,35 +4,37 @@ const lang = getLangFromUrl(Astro.url);
 
 const testimonials = [
   {
-    quote: lang === 'en' ? '"Bitsec transformed our online presence completely. Highly recommended!"' : '"বিটসেক আমাদের অনলাইন ব্যবসাকে সম্পূর্ণ বদলে দিয়েছে। তাদের কাজ চমৎকার!"',
+    quote: lang === 'en' ? '"Bitsec transformed our online presence completely. Highly recommended!"' : '"বিটসেক আমাদের অনলাইন ব্যবসাকে সম্পূর্ণ বদলে দিয়েছে। তাদের কাজ চমৎকার!"',
     author: 'Ahmed H.',
     role: 'CEO, Retail Solutions'
   },
   {
-    quote: lang === 'en' ? '"Their security audit saved us from a major data breach."' : '"তাদের সিকিউরিটি অডিট আমাদের একটি বড় ডেটা ব্রিচ থেকে রক্ষা করেছে।"',
+    quote: lang === 'en' ? '"Their security audit saved us from a major data breach."' : '"তাদের সিকিউরিটি অডিট আমাদের একটি বড় ডেটা ব্রিচ থেকে রক্ষা করেছে।"',
     author: 'Sarah M.',
     role: 'CTO, Fintech BD'
   }
 ];
 ---
-<section class="py-24 bg-surface dark:bg-surface border-y border-border dark:border-border">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section class="py-24 bg-[#0D1B2A] relative overflow-hidden">
+  <div class="absolute top-0 right-0 w-80 h-80 bg-[#0057FF]/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute bottom-0 left-0 w-72 h-72 bg-[#00C2A8]/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-5xl font-bold text-text-primary dark:text-white mb-6">
-        {lang === 'en' ? 'Client Testimonials' : 'ক্লায়েন্টদের সন্তুষ্টি'}
+      <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
+        {lang === 'en' ? 'Client Testimonials' : 'ক্লায়েন্টদের সন্তুষ্টি'}
       </h2>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       {testimonials.map(t => (
-        <div class="bg-surface dark:bg-[var(--theme-surface-2)] p-8 md:p-10 rounded-2xl border border-border dark:border-border shadow-sm">
-          <div class="text-primary text-4xl mb-6">"</div>
-          <p class="text-lg md:text-xl text-text-primary dark:text-gray-200 font-medium mb-8 italic">
+        <div class="bg-white/5 backdrop-blur-sm p-8 md:p-10 rounded-2xl border border-white/10 shadow-lg">
+          <div class="text-[#7EB3FF] text-4xl mb-6">"</div>
+          <p class="text-lg md:text-xl text-white/90 font-medium mb-8 italic">
             {t.quote}
           </p>
           <div>
-            <div class="font-bold text-text-primary dark:text-white">{t.author}</div>
-            <div class="text-sm text-text-secondary dark:text-text-secondary">{t.role}</div>
+            <div class="font-bold text-white">{t.author}</div>
+            <div class="text-sm text-white/60">{t.role}</div>
           </div>
         </div>
       ))}

@@ -31,16 +31,17 @@ const services = [
   }
 ];
 ---
-<section class="py-24 bg-background relative overflow-hidden">
-  <div class="absolute inset-0 bg-grid-white/[0.02] bg-[size:32px_32px]"></div>
-  
+<section class="py-24 relative overflow-hidden bg-[#EEF3FF]">
+  <!-- Subtle ambient glow -->
+  <div class="absolute top-0 right-0 w-96 h-96 bg-[#0057FF]/5 rounded-full blur-3xl -z-0 pointer-events-none"></div>
+  <div class="absolute bottom-0 left-0 w-72 h-72 bg-[#00C2A8]/5 rounded-full blur-3xl -z-0 pointer-events-none"></div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <div class="text-center mb-16" data-animate="fade-up">
       <h2 class="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-[#0057FF] via-[#00C2A8] to-[#0057FF] bg-clip-text text-transparent mb-6 inline-block animate-gradient-shimmer pb-2">
         {t('services.heading')}
       </h2>
-      <p class="text-lg text-text-secondary dark:text-gray-400 max-w-2xl mx-auto">
+      <p class="text-lg text-[#5A6A7E] max-w-2xl mx-auto">
         {t('services.subheading')}
       </p>
     </div>
@@ -48,11 +49,11 @@ const services = [
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
       {services.map((service, i) => (
         <a href={translatePath(service.link)} class="block group h-full" data-animate="fade-up" style={`--stagger: ${i * 0.12}s`}>
-          <div class="bg-surface dark:bg-[#1C2128] p-8 rounded-2xl border border-border dark:border-[#30363D] h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/20 relative overflow-hidden group">
-            <div class="absolute -right-10 -top-10 w-32 h-32 bg-primary/5 rounded-full blur-2xl transition-all duration-300 group-hover:bg-primary/15 group-hover:scale-150"></div>
+          <div class="bg-white p-8 rounded-2xl border border-[#C5D6FF] h-full transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-[#0057FF]/10 relative overflow-hidden group">
+            <div class="absolute -right-10 -top-10 w-32 h-32 bg-[#0057FF]/5 rounded-full blur-2xl transition-all duration-300 group-hover:bg-[#0057FF]/10 group-hover:scale-150"></div>
             <div class="mb-6 relative z-10" set:html={service.icon}></div>
-            <h3 class="text-xl font-bold text-text-primary dark:text-white mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
-            <p class="text-text-secondary dark:text-gray-400">{service.description}</p>
+            <h3 class="text-xl font-bold text-[#0D1B2A] mb-3 group-hover:text-[#0057FF] transition-colors">{service.title}</h3>
+            <p class="text-[#5A6A7E]">{service.description}</p>
           </div>
         </a>
       ))}

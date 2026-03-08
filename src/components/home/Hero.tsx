@@ -32,7 +32,7 @@ function HighlightedTitle({ title }: { title: string }) {
                     {before}
                     <span className="relative inline-block">
                         <span
-                            className="bg-gradient-to-r from-[#0057FF] via-[#00C2A8] to-[#0057FF] bg-clip-text text-transparent"
+                            className="bg-gradient-to-b from-white to-[#0057FF] bg-clip-text text-transparent"
                             style={{
                                 backgroundSize: '200% auto',
                                 animation: 'gradientShimmer 3s linear infinite',
@@ -40,9 +40,10 @@ function HighlightedTitle({ title }: { title: string }) {
                         >
                             {phrase}
                         </span>
-                        {/* solid underline instead of pulsating glow */}
+                        {/* underline — নিচে gradient */}
                         <span
-                            className="absolute -bottom-1 left-0 right-0 h-[3px] rounded-full bg-primary"
+                            className="absolute -bottom-1 left-0 right-0 h-[3px] rounded-full"
+                            style={{ background: 'linear-gradient(to right, #ffffff, #7EB3FF, #0057FF)' }}
                         />
                     </span>
                     {after}
@@ -55,11 +56,11 @@ function HighlightedTitle({ title }: { title: string }) {
 
 export default function Hero({ lang = 'bn', title, subtitle, primaryCta, secondaryCta, primaryLink, secondaryLink, trustClients, trustProjects, trustReply }: HeroProps) {
     return (
-        <section className="relative overflow-hidden pt-24 pb-32 flex items-center min-h-[90vh]">
+        <section className="relative overflow-hidden pt-24 pb-32 flex items-center min-h-[90vh]" style={{background: 'linear-gradient(90deg, rgba(0,42,128,1) 0%, rgba(0,194,168,1) 100%)'}}>
 
             {/* Background Gradients */}
             <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
-                <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#0057FF] to-[#00C2A8] opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"></div>
+                <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-white/20 to-white/5 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"></div>
             </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
@@ -69,7 +70,7 @@ export default function Hero({ lang = 'bn', title, subtitle, primaryCta, seconda
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
                     >
-                        <h1 className="text-5xl md:text-7xl font-extrabold text-text-primary dark:text-white tracking-tight leading-tight mb-8 max-w-3xl mx-auto">
+                        <h1 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-tight mb-8 max-w-3xl mx-auto">
                             <HighlightedTitle title={title} />
                         </h1>
                     </motion.div>
@@ -79,7 +80,7 @@ export default function Hero({ lang = 'bn', title, subtitle, primaryCta, seconda
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.1 }}
                     >
-                        <p className="text-lg md:text-2xl text-text-secondary dark:text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+                        <p className="text-lg md:text-2xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
                             {subtitle}
                         </p>
                     </motion.div>
@@ -91,12 +92,12 @@ export default function Hero({ lang = 'bn', title, subtitle, primaryCta, seconda
                         className="flex flex-col sm:flex-row gap-4 justify-center items-center"
                     >
                         <a href={primaryLink} className="w-full sm:w-auto">
-                            <Button size="lg" className="w-full text-lg px-8 py-4">
+                            <Button size="lg" className="w-full text-lg px-8 py-4 bg-white text-[#002A80] hover:bg-[#EEF3FF]">
                                 {primaryCta}
                             </Button>
                         </a>
                         <a href={secondaryLink} className="w-full sm:w-auto">
-                            <Button variant="ghost" size="lg" className="w-full text-lg px-8 py-4">
+                            <Button variant="ghost" size="lg" className="w-full text-lg px-8 py-4 text-white border-white/40 hover:bg-white/10">
                                 {secondaryCta}
                             </Button>
                         </a>
@@ -107,20 +108,20 @@ export default function Hero({ lang = 'bn', title, subtitle, primaryCta, seconda
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.35 }}
-                        className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mt-10 text-sm text-text-secondary dark:text-gray-400"
+                        className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mt-10 text-sm text-white/70"
                     >
                         <span className="flex items-center gap-1.5">
                             <span className="text-yellow-400">★★★★★</span>
-                            <span className="font-medium text-text-primary dark:text-white">8+</span> {trustClients}
+                            <span className="font-medium text-white">8+</span> {trustClients}
                         </span>
-                        <span className="hidden sm:block w-px h-4 bg-border dark:bg-[#30363D]"></span>
+                        <span className="hidden sm:block w-px h-4 bg-white/30"></span>
                         <span className="flex items-center gap-1.5">
-                            <span className="text-[#00C2A8]">✓</span>
-                            <span className="font-medium text-text-primary dark:text-white">10+</span> {trustProjects}
+                            <span className="text-[#40D4C0]">✓</span>
+                            <span className="font-medium text-white">10+</span> {trustProjects}
                         </span>
-                        <span className="hidden sm:block w-px h-4 bg-border dark:bg-[#30363D]"></span>
+                        <span className="hidden sm:block w-px h-4 bg-white/30"></span>
                         <span className="flex items-center gap-1.5">
-                            <span className="text-[#0057FF]">⚡</span>
+                            <span className="text-[#A0EDE3]">⚡</span>
                             {trustReply}
                         </span>
                     </motion.div>

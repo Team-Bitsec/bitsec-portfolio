@@ -42,23 +42,23 @@ const steps = [
 ];
 ---
 
-<section class="py-24 relative overflow-hidden">
+<section class="py-24 bg-white relative overflow-hidden">
   {/* Ambient background blobs */}
-  <div class="absolute top-0 left-1/4 w-72 h-72 bg-[var(--theme-primary)]/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
-  <div class="absolute bottom-0 right-1/4 w-72 h-72 bg-[var(--theme-accent)]/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+  <div class="absolute top-0 left-1/4 w-72 h-72 bg-[#0057FF]/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+  <div class="absolute bottom-0 right-1/4 w-72 h-72 bg-[#00C2A8]/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     {/* Section Header */}
     <div class="text-center mb-20"
       data-animate="fade-up">
-      <span class="inline-block text-xs font-bold uppercase tracking-widest text-[var(--theme-primary)] bg-[var(--theme-primary)]/10 px-4 py-1.5 rounded-full mb-4">
+      <span class="inline-block text-xs font-bold uppercase tracking-widest text-[#0057FF] bg-[#0057FF]/10 px-4 py-1.5 rounded-full mb-4">
         {lang === 'en' ? 'Our Process' : 'আমাদের প্রক্রিয়া'}
       </span>
-      <h2 class="text-3xl md:text-5xl font-bold text-text-primary dark:text-white mb-4 leading-tight">
+      <h2 class="text-3xl md:text-5xl font-bold text-[#0D1B2A] mb-4 leading-tight">
         {lang === 'en' ? 'How We Work' : 'আমরা কীভাবে কাজ করি'}
       </h2>
-      <p class="text-lg text-text-secondary dark:text-text-secondary max-w-xl mx-auto">
+      <p class="text-lg text-[#5A6A7E] max-w-xl mx-auto">
         {lang === 'en'
           ? 'A simple, transparent process designed around your success.'
           : 'আপনার সাফল্যকে কেন্দ্র করে তৈরি একটি সহজ ও স্বচ্ছ প্রক্রিয়া।'}
@@ -73,7 +73,7 @@ const steps = [
 
       {steps.map((step, i) => (
         <div class="relative z-10 group" data-animate="fade-up" style={`animation-delay: ${i * 0.15}s`}>
-          <div class="bg-white dark:bg-[#18181b] rounded-2xl border border-zinc-200 dark:border-zinc-800 p-8 h-full shadow-sm hover:shadow-lg hover:shadow-[var(--theme-primary)]/10 hover:-translate-y-2 transition-all duration-300 flex flex-col">
+          <div class="bg-white rounded-2xl border border-[#C5D6FF] p-8 h-full shadow-sm hover:shadow-lg hover:shadow-[#0057FF]/10 hover:-translate-y-2 transition-all duration-300 flex flex-col">
 
             {/* Top row: icon + step number */}
             <div class="flex items-center gap-4 mb-6">
@@ -81,18 +81,18 @@ const steps = [
               <div class={`relative w-14 h-14 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center text-white shadow-md flex-shrink-0`}>
                 <Fragment set:html={step.icon} />
                 {/* Step badge */}
-                <span class="absolute -top-2 -right-2 w-6 h-6 bg-white dark:bg-zinc-900 border-2 border-[var(--theme-primary)] text-[var(--theme-primary)] text-xs font-extrabold rounded-full flex items-center justify-center shadow">
+                <span class="absolute -top-2 -right-2 w-6 h-6 bg-white border-2 border-[#0057FF] text-[#0057FF] text-xs font-extrabold rounded-full flex items-center justify-center shadow">
                   {i + 1}
                 </span>
               </div>
               {/* Large faded step number */}
-              <span class="text-6xl font-black text-zinc-100 dark:text-zinc-800 select-none leading-none">{step.number}</span>
+              <span class="text-6xl font-black text-[#DDE5F0] select-none leading-none">{step.number}</span>
             </div>
 
-            <h3 class="text-xl font-bold text-text-primary dark:text-white mb-3 group-hover:text-[var(--theme-primary)] transition-colors">
+            <h3 class="text-xl font-bold text-[#0D1B2A] mb-3 group-hover:text-[#0057FF] transition-colors">
               {lang === 'en' ? step.titleEN : step.titleBN}
             </h3>
-            <p class="text-text-secondary dark:text-text-secondary leading-relaxed flex-grow">
+            <p class="text-[#5A6A7E] leading-relaxed flex-grow">
               {lang === 'en' ? step.descEN : step.descBN}
             </p>
 

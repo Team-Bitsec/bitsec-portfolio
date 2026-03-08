@@ -11,19 +11,19 @@ const stats = [
 ];
 ---
 
-<section class="py-16 bg-surface dark:bg-[var(--theme-surface-2)] border-y border-border dark:border-[#27272a]">
+<section class="py-16 bg-[#0D1B2A] border-y border-[#1E3A5F]">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
       {stats.map((stat, i) => (
         <div class="trust-stat" style={`animation-delay: ${i * 0.1}s`}>
           <div
-            class="trust-number text-4xl md:text-5xl font-extrabold text-[var(--theme-primary)] mb-2 tracking-tight transition-all duration-300"
+            class="trust-number text-4xl md:text-5xl font-extrabold bg-gradient-to-b from-white to-[#7EB3FF] bg-clip-text text-transparent mb-2 tracking-tight transition-all duration-300"
             data-target={stat.numeric}
             data-suffix={stat.suffix}
           >
             {stat.value}
           </div>
-          <div class="text-sm md:text-base font-medium text-text-secondary dark:text-text-secondary">
+          <div class="text-sm md:text-base font-medium text-white/70">
             {stat.label}
           </div>
         </div>
@@ -45,45 +45,61 @@ const stats = [
 </style>
 
 <script>
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const trustBarStats = document.querySelectorAll('.trust-stat');
-  
-  if (prefersReduced) {
-    // Show immediately, skip count-up
-    trustBarStats.forEach((stat) => {
-      (stat as HTMLElement).classList.add('visible');
-    });
-  } else {
+  function initTrustBar() {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const trustBarStats = document.querySelectorAll('.trust-stat');
+    if (!trustBarStats.length) return;
+
+    // Safety fallback: always show stats after 1.5s regardless of scroll
+    const fallbackTimer = setTimeout(() => {
+      trustBarStats.forEach((stat) => {
+        (stat as HTMLElement).classList.add('visible');
+      });
+    }, 1500);
+
+    function showStat(el: HTMLElement) {
+      el.classList.add('visible');
+
+      // Count-up animation
+      const numEl = el.querySelector('.trust-number') as HTMLElement;
+      if (!numEl || prefersReduced) return;
+      const target = parseInt(numEl.dataset.target || '0', 10);
+      const suffix = numEl.dataset.suffix || '';
+      const duration = 1200;
+      const startTime = performance.now();
+
+      function tick(now: number) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        numEl.textContent = Math.round(eased * target) + suffix;
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+
+    if (prefersReduced) {
+      clearTimeout(fallbackTimer);
+      trustBarStats.forEach((stat) => showStat(stat as HTMLElement));
+      return;
+    }
+
     const trustBarObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
           const el = entry.target as HTMLElement;
-          el.classList.add('visible');
-
-          // Count-up animation
-          const numEl = el.querySelector('.trust-number') as HTMLElement;
-          if (!numEl) return;
-          const target = parseInt(numEl.dataset.target || '0', 10);
-          const suffix = numEl.dataset.suffix || '';
-          const duration = 1200;
-          const startTime = performance.now();
-
-          function tick(now: number) {
-            const elapsed = now - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            // ease-out cubic
-            const eased = 1 - Math.pow(1 - progress, 3);
-            numEl.textContent = Math.round(eased * target) + suffix;
-            if (progress < 1) requestAnimationFrame(tick);
-          }
-          requestAnimationFrame(tick);
+          showStat(el);
           trustBarObserver.unobserve(entry.target);
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.15 }
     );
 
     trustBarStats.forEach((stat) => trustBarObserver.observe(stat));
   }
+
+  // Run on initial load and after Astro View Transitions
+  document.addEventListener('astro:page-load', initTrustBar);
+  initTrustBar();
 </script>

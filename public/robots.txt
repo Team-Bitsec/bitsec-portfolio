@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bitsec.agency/sitemap-index.xml
+Sitemap: https://team-bitsec.github.io/bitsec-portfolio/sitemap-index.xml
